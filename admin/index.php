@@ -1,3 +1,41 @@
+<?php
+    require ('admin-database.php');
+
+    // session_start();
+
+    // if ($_SESSION['status'] == "invalid" || empty($_SESSION['status'])) {
+    //     $_SESSION['status'] == "invalid";
+    // }
+    // if ($_SESSION['status'] == "valid") {
+    //     echo "<script>window.location.href = 'admin-panel.php'</script>";
+    // }
+
+    if (isset($_POST['btnLogin'])) {
+        $txt_username = trim($_POST['txtUsername']);
+        $txt_password = trim($_POST['txtPassword']);
+
+        if (empty($txt_username) || empty($txt_password)) {
+            echo "<script>alert('Please fill up all fields.');</script>";
+        } else {
+            
+            $queryValidate = "SELECT * FROM tbladminaccs WHERE username = '$txt_username' AND password = '$txt_password'";
+            $sqlValidate = mysqli_query($CON, $queryValidate);
+            $rowValidate = mysqli_fetch_assoc($sqlValidate);
+
+            if (mysqli_num_rows($sqlValidate) > 0) {
+                $_SESSION['status'] = 'valid';
+                $_SESSION['username'] = $rowValidate['username'];
+
+                // echo "<script>clear_form();</script>";
+
+                echo "<script>window.location.href = 'admin-panel.php'</script>";
+            } else {
+                $_SESSION['status'] = 'invalid';
+                echo "Invalid Credentials";
+            }
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +52,7 @@
 <body>
     <div class="container-fluid" style="padding-top: 10px;">
         <div class="row justify-content-md-center">
-            <form action="" id="frmAdminLogin" class="col-4 align-items-center">
+            <form method="POST" id="frmAdminLogin" class="col-4 align-items-center">
                 <div class="mb-3">
                     <label for="adminUsername" class="form-label">Username</label>
                     <input type="text" class="form-control" id="adminUsername" placeholder="Your Username" name="txtuserame">
