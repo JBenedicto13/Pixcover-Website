@@ -25,7 +25,7 @@
                 $_SESSION['status'] = 'valid';
                 $_SESSION['username'] = $rowValidate['username'];
 
-                // echo "<script>clear_form();</script>";
+                echo "<script>clear_form();</script>";
 
                 echo "<script>window.location.href = 'admin-panel.php'</script>";
             } else {
@@ -41,11 +41,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
+    <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="admin-css/main-style.css">
+    
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="admin-js/admin-index.js"></script>
     <title>Admin Page</title>
 </head>
 <body>
@@ -54,14 +56,14 @@
             <form method="POST" id="frmAdminLogin" class="col-4 align-items-center">
                 <div class="mb-3">
                     <label for="txtUsername" class="form-label">Username</label>
-                    <input type="text" class="form-control" placeholder="Your Username" name="txtUsername">
+                    <input type="text" class="form-control" placeholder="Your Username" name="txtUsername" id="txtUsername">
                 </div>
                 <div class="mb-3">
                     <label for="txtPassword" class="form-label">Password</label>
-                    <input type="text" class="form-control" placeholder="Your Password" name="txtPassword">
+                    <input type="password" class="form-control" placeholder="Your Password" name="txtPassword" id="txtPassword">
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="showPass">
+                    <input type="checkbox" class="form-check-input" id="showPass" name="showPass" onclick="toggle()">
                     <label class="form-check-label" for="showPass">Show Password</label>
                 </div>
                 <button type="submit" class="btn btn-primary" name="btnLogin">Login</button>
@@ -69,4 +71,5 @@
         </div>
     </div>
 </body>
+
 </html>
