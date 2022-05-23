@@ -1,14 +1,13 @@
 <?php
     require ('admin-database.php');
 
-    // session_start();
+    session_start();
 
-    // if ($_SESSION['status'] == "invalid" || empty($_SESSION['status'])) {
-    //     $_SESSION['status'] == "invalid";
-    // }
-    // if ($_SESSION['status'] == "valid") {
-    //     echo "<script>window.location.href = 'admin-panel.php'</script>";
-    // }
+    if ($_SESSION['status'] == "invalid" || empty($_SESSION['status'])) {
+        $_SESSION['status'] == "invalid";
+    } else {
+        echo "<script>window.location.href = 'admin-panel.php'</script>";
+    }
 
     if (isset($_POST['btnLogin'])) {
         $txt_username = trim($_POST['txtUsername']);
