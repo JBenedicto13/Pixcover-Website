@@ -54,12 +54,12 @@
         <div class="row justify-content-md-center">
             <form method="POST" id="frmAdminLogin" class="col-4 align-items-center">
                 <div class="mb-3">
-                    <label for="adminUsername" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="adminUsername" placeholder="Your Username" name="txtuserame">
+                    <label for="txtUsername" class="form-label">Username</label>
+                    <input type="text" class="form-control" placeholder="Your Username" name="txtUsername">
                 </div>
                 <div class="mb-3">
-                    <label for="adminPassword" class="form-label">Password</label>
-                    <input type="text" class="form-control" id="adminPassword" placeholder="Your Password" name="txtPassword">
+                    <label for="txtPassword" class="form-label">Password</label>
+                    <input type="text" class="form-control" placeholder="Your Password" name="txtPassword">
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="showPass">
