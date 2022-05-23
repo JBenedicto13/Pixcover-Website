@@ -8,6 +8,6 @@
 </head>
 <body>
     <h1>Hello Welcome to Admin Panel!</h1>
-    <h1><a href="index.php">Logout</a></h1>
+    <form action="admin-logout.php" method="post"><input class="btn btn-dark" type="submit" name="btnLogout" value="Logout"></form>
 </body>
 </html>
