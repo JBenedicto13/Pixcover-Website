@@ -27,7 +27,7 @@
                     <input type="checkbox" class="form-check-input" id="showPass">
                     <label class="form-check-label" for="showPass">Show Password</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Signin</button>
+                <button type="submit" class="btn btn-primary" name="btnLogin">Login</button>
             </form>
         </div>
     </div>
