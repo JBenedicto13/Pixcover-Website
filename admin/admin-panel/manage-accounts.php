@@ -121,7 +121,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="add-password" class="col-form-label">Password:</label>
-                    <input type="password" class="form-control" id="add-password" name="txtPassword" placeholder="Enter Password">
+                    <input type="text" class="form-control" id="add-password" name="txtPassword" placeholder="Enter Password">
                 </div>
                 <div class="mb-3">
                     <label for="add-email" class="col-form-label">Email:</label>
@@ -156,30 +156,31 @@
             </div>
             <form action="add-account.php" method="POST">
             <div class="modal-body">
+                <input type="hidden" id="edit-id" name="edit-id">
                 <div class="mb-3">
-                    <label for="add-Username" class="col-form-label">Username:</label>
-                    <input type="text" class="form-control" id="add-Username" name="txtUsername" placeholder="Enter Username">
+                    <label for="edit-username" class="col-form-label">Username:</label>
+                    <input type="text" class="form-control" id="edit-username" name="txtUsername" placeholder="Enter Username">
                 </div>
                 <div class="mb-3">
-                    <label for="add-password" class="col-form-label">Password:</label>
-                    <input type="password" class="form-control" id="add-password" name="txtPassword" placeholder="Enter Password">
+                    <label for="edit-password" class="col-form-label">Password:</label>
+                    <input type="text" class="form-control" id="edit-password" name="txtPassword" placeholder="Enter Password">
                 </div>
                 <div class="mb-3">
-                    <label for="add-email" class="col-form-label">Email:</label>
-                    <input type="text" class="form-control" id="add-email" name="txtEmail" placeholder="Enter Email">
+                    <label for="edit-email" class="col-form-label">Email:</label>
+                    <input type="text" class="form-control" id="edit-email" name="txtEmail" placeholder="Enter Email">
                 </div>
                 <div class="mb-3">
-                    <label for="add-type" class="col-form-label">Type:</label>
-                    <input type="text" class="form-control" id="add-type" name="txtType" placeholder="Enter Type">
+                    <label for="edit-type" class="col-form-label">Type:</label>
+                    <input type="text" class="form-control" id="edit-type" name="txtType" placeholder="Enter Type">
                 </div>
                 <div class="mb-3">
-                    <label for="add-display-photo" class="col-form-label">Display Photo:</label>
-                    <input type="text" class="form-control" id="add-display-photo" name="txtDisplayPhoto" placeholder="Enter Display Photo">
+                    <label for="edit-display-photo" class="col-form-label">Display Photo:</label>
+                    <input type="text" class="form-control" id="edit-display-photo" name="txtDisplayPhoto" placeholder="Enter Display Photo">
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" name="btnEdit">Edit Record</button>
+                <button type="submit" class="btn btn-primary" name="btnUpdate" id="btnUpdate">Update Record</button>
             </div>
             </form>
             </div>
@@ -211,6 +212,19 @@
 
                 $('#editRecordModal').modal('show');
 
+                    $tr = $(this).closest('tr');
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
+
+                    console.log(data);
+
+                    $('#edit-id').val(data[0]);
+                    $('#edit-username').val(data[1]);
+                    $('#edit-password').val(data[2]);
+                    $('#edit-email').val(data[3]);
+                    $('#edit-type').val(data[4]);
+                    $('#edit-display-photo').val(data[5]);
             });
         });
     </script>
