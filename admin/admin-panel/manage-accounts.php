@@ -46,6 +46,26 @@
             </li>
         </ul>
         </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="table-light">
+                    <td>ID</td>
+                    <td>Username</td>
+                    <td>Password</td>
+                    <td>Email</td>
+                    <td>Display Photo</td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>Username</td>
+                        <td>Password</td>
+                        <td>Email</td>
+                        <td>Display Photo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
