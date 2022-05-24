@@ -1,4 +1,19 @@
-<?php require ('../admin-session.php'); ?>
+<?php
+    require ('../admin-session.php');
+    require ('../admin-database.php');
+    require ('view-accounts.php');
+
+    $adminaccs_result = mysqli_query($CON,"SELECT * FROM tbladminaccs");
+
+    $txt_ID = "";
+    $txt_Username = "";
+    $txt_Password = "";
+    $txt_Email = "";
+    $txt_Display_Photo = "";
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +29,25 @@
     <title>Manage Accounts</title>
 </head>
 <body>
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="confirmDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            ...
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
     <h1>Hello Welcome <?php echo $_SESSION['username'] ?> to Admin Panel!</h1>
     <form action="admin-logout.php" method="post"><input class="btn btn-dark" type="submit" name="btnLogout" value="Logout"></form>
 
@@ -53,16 +87,23 @@
                     <td>Username</td>
                     <td>Password</td>
                     <td>Email</td>
+                    <td>Type</td>
                     <td>Display Photo</td>
+                    <td colspan="2">Manage</td>
                 </thead>
                 <tbody>
+                    <?php while ($ROW = mysqli_fetch_array($adminaccs_result)) { ?>
                     <tr>
-                        <td></td>
-                        <td>Username</td>
-                        <td>Password</td>
-                        <td>Email</td>
-                        <td>Display Photo</td>
+                        <td><?php echo $ROW['idtbladminaccs']; ?></td>
+                        <td><?php echo $ROW['username']; ?></td>
+                        <td><?php echo $ROW['password']; ?></td>
+                        <td><?php echo $ROW['email']; ?></td>
+                        <td><?php echo $ROW['type']; ?></td>
+                        <td><?php echo $ROW['display_photo']; ?></td>
+                        <td><a href="#">Edit</a></td>
+                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#confirmDelete">Delete</a></td>
                     </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
