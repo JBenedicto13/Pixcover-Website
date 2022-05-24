@@ -117,23 +117,23 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="add-Username" class="col-form-label">Username:</label>
-                    <input type="text" class="form-control" id="add-Username" name="txtUsername">
+                    <input type="text" class="form-control" id="add-Username" name="txtUsername" placeholder="Enter Username">
                 </div>
                 <div class="mb-3">
                     <label for="add-password" class="col-form-label">Password:</label>
-                    <input type="password" class="form-control" id="add-password" name="txtPassword">
+                    <input type="password" class="form-control" id="add-password" name="txtPassword" placeholder="Enter Password">
                 </div>
                 <div class="mb-3">
                     <label for="add-email" class="col-form-label">Email:</label>
-                    <input type="text" class="form-control" id="add-email" name="txtEmail">
+                    <input type="text" class="form-control" id="add-email" name="txtEmail" placeholder="Enter Email">
                 </div>
                 <div class="mb-3">
                     <label for="add-type" class="col-form-label">Type:</label>
-                    <input type="text" class="form-control" id="add-type" name="txtType">
+                    <input type="text" class="form-control" id="add-type" name="txtType" placeholder="Enter Type">
                 </div>
                 <div class="mb-3">
                     <label for="add-display-photo" class="col-form-label">Display Photo:</label>
-                    <input type="text" class="form-control" id="add-display-photo" name="txtDisplayPhoto">
+                    <input type="text" class="form-control" id="add-display-photo" name="txtDisplayPhoto" placeholder="Enter Display Photo">
                 </div>
             </div>
             <div class="modal-footer">
@@ -158,23 +158,23 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="add-Username" class="col-form-label">Username:</label>
-                    <input type="text" class="form-control" id="add-Username" name="txtUsername">
+                    <input type="text" class="form-control" id="add-Username" name="txtUsername" placeholder="Enter Username">
                 </div>
                 <div class="mb-3">
                     <label for="add-password" class="col-form-label">Password:</label>
-                    <input type="password" class="form-control" id="add-password" name="txtPassword">
+                    <input type="password" class="form-control" id="add-password" name="txtPassword" placeholder="Enter Password">
                 </div>
                 <div class="mb-3">
                     <label for="add-email" class="col-form-label">Email:</label>
-                    <input type="text" class="form-control" id="add-email" name="txtEmail">
+                    <input type="text" class="form-control" id="add-email" name="txtEmail" placeholder="Enter Email">
                 </div>
                 <div class="mb-3">
                     <label for="add-type" class="col-form-label">Type:</label>
-                    <input type="text" class="form-control" id="add-type" name="txtType">
+                    <input type="text" class="form-control" id="add-type" name="txtType" placeholder="Enter Type">
                 </div>
                 <div class="mb-3">
                     <label for="add-display-photo" class="col-form-label">Display Photo:</label>
-                    <input type="text" class="form-control" id="add-display-photo" name="txtDisplayPhoto">
+                    <input type="text" class="form-control" id="add-display-photo" name="txtDisplayPhoto" placeholder="Enter Display Photo">
                 </div>
             </div>
             <div class="modal-footer">
