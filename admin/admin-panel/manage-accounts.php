@@ -185,24 +185,29 @@
         </div>
 
         <!-- Delete Confirmation Modal -->
-        <div class="modal fade" id="confirmDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class='modal-footer' style='background-color:#1F4E78;'>
-                        <a class='btn btn-danger'> Delete</a>
-                    </div>
-                </div>
+        <div class="modal fade" id="confirmDeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editRecordModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editRecordModalLabel">Delete Record</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <form action="delete-account.php" method="POST">
+            <div class="modal-body">
+                <input type="hidden" id="delete-id" name="delete-id">
+                <h4>Are you sure you want to delete this record?</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="submit" class="btn btn-primary" name="btnDelete" id="btnDelete">Yes</button>
+            </div>
+            </form>
+            </div>
+        </div>
         </div>
     </div>
 
+    <!-- Update Function -->
     <script>
         $(document).ready (function() {
             $('.btnEdit').on('click', function(){
@@ -222,6 +227,25 @@
                     $('#edit-email').val(data[3]);
                     $('#edit-type').val(data[4]);
                     $('#edit-display-photo').val(data[5]);
+            });
+        });
+    </script>
+
+    <!-- Delete Function -->
+    <script>
+        $(document).ready (function() {
+            $('.btnDelete').on('click', function(){
+
+                $('#confirmDeleteModal').modal('show');
+
+                    $tr = $(this).closest('tr');
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
+
+                    console.log(data);
+
+                    $('#delete-id').val(data[0]);
             });
         });
     </script>
