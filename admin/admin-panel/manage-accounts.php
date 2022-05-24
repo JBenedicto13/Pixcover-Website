@@ -29,25 +29,6 @@
     <title>Manage Accounts</title>
 </head>
 <body>
-    <!-- Delete Confirmation Modal -->
-    <div class="modal fade" id="confirmDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            ...
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
-        </div>
-        </div>
-    </div>
-    </div>
-
     <h1>Hello Welcome <?php echo $_SESSION['username'] ?> to Admin Panel!</h1>
     <form action="admin-logout.php" method="post"><input class="btn btn-dark" type="submit" name="btnLogout" value="Logout"></form>
 
@@ -101,12 +82,36 @@
                         <td><?php echo $ROW['type']; ?></td>
                         <td><?php echo $ROW['display_photo']; ?></td>
                         <td><a href="#">Edit</a></td>
-                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#confirmDelete">Delete</a></td>
+                        <td>
+                            <form action="delete-account.php" method="POST">
+                                <input type="submit" name="btnDelete" value="Delete">
+                                <input type="hidden" name="btnDeleteId" value="<?php echo $ROW['idtbladminaccs']; ?>">
+                            </form>
+                        </td>
                     </tr>
                     <?php } ?>
                 </tbody>
             </table>
         </div>
+
+        <!-- Delete Confirmation Modal -->
+        <div class="modal fade" id="confirmDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class='modal-footer' style='background-color:#1F4E78;'>
+                        <a class='btn btn-danger'> Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
