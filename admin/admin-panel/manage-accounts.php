@@ -83,7 +83,12 @@
                         <td><?php echo $ROW['email']; ?></td>
                         <td><?php echo $ROW['type']; ?></td>
                         <td><?php echo $ROW['display_photo']; ?></td>
-                        <td><a href="#">Edit</a></td>
+                        <td>
+                            <form action="" method="POST">
+                                <input type="submit" name="btnEdit" value="Edit">
+                                <input type="hidden" name="btnEditId" value="<?php echo $ROW['idtbladminaccs']; ?>">
+                            </form>
+                        </td>
                         <td>
                             <form action="delete-account.php" method="POST">
                                 <input type="submit" name="btnDelete" value="Delete">
@@ -107,16 +112,15 @@
                 <h5 class="modal-title" id="addRecordModalLabel">Add New Record</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form>
+            <form action="add-account.php" method="POST">
             <div class="modal-body">
-                
                 <div class="mb-3">
                     <label for="add-Username" class="col-form-label">Username:</label>
                     <input type="text" class="form-control" id="add-Username" name="txtUsername">
                 </div>
                 <div class="mb-3">
                     <label for="add-password" class="col-form-label">Password:</label>
-                    <input type="text" class="form-control" id="add-password" name="txtPasword">
+                    <input type="password" class="form-control" id="add-password" name="txtPassword">
                 </div>
                 <div class="mb-3">
                     <label for="add-email" class="col-form-label">Email:</label>
@@ -130,11 +134,10 @@
                     <label for="add-display-photo" class="col-form-label">Display Photo:</label>
                     <input type="text" class="form-control" id="add-display-photo" name="txtDisplayPhoto">
                 </div>
-                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="btnAdd">Add Record</button>
+                <button type="submit" class="btn btn-primary" name="btnAdd">Add Record</button>
             </div>
             </form>
             </div>
