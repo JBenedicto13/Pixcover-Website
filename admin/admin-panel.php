@@ -21,8 +21,11 @@
     <div class="container-fluid">
         <div class="nav">
         <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Dashboard</a>
+            </li>
             <li class="nav-item dropdown">
-                <a class="nav-link active" data-bs-toggle="dropdown" href="#" role="button">Contents</a>
+                <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button">Contents</a>
                 <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Home</a></li>
                 <li><a class="dropdown-item" href="#">About</a></li>
@@ -37,7 +40,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button">Accounts</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                    <li><a class="dropdown-item" href="admin-panel/profile.php">My Profile</a></li>
                     <li><a class="dropdown-item" href="#">View Accounts</a></li>
                     <li><a class="dropdown-item" href="#">Update Accounts</a></li>
                     <li><a class="dropdown-item" href="#">Delete Accounts</a></li>
