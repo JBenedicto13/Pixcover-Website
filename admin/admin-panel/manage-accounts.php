@@ -84,10 +84,11 @@
                         <td><?php echo $ROW['type']; ?></td>
                         <td><?php echo $ROW['display_photo']; ?></td>
                         <td>
-                            <form action="" method="POST">
+                            <button type="button" class="btn btn-success btnEdit">Edit</button>
+                            <!-- <form action="" method="POST">
                                 <input type="submit" name="btnEdit" value="Edit">
                                 <input type="hidden" name="btnEditId" value="<?php echo $ROW['idtbladminaccs']; ?>">
-                            </form>
+                            </form> -->
                         </td>
                         <td>
                             <form action="delete-account.php" method="POST">
@@ -103,7 +104,7 @@
 
         <!-- Add Record Modal -->
 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRecordModal" data-bs-whatever="@mdo">Add New</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRecordModal" data-bs-whatever="@mdo">Add New Record</button>
         
         <div class="modal fade" id="addRecordModal" tabindex="-1" aria-labelledby="addRecordModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -144,6 +145,47 @@
         </div>
         </div>
 
+        <!-- Edit Record Modal -->
+
+        <div class="modal fade" id="editRecordModal" tabindex="-1" aria-labelledby="editRecordModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editRecordModalLabel">Edit Record</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="add-account.php" method="POST">
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="add-Username" class="col-form-label">Username:</label>
+                    <input type="text" class="form-control" id="add-Username" name="txtUsername">
+                </div>
+                <div class="mb-3">
+                    <label for="add-password" class="col-form-label">Password:</label>
+                    <input type="password" class="form-control" id="add-password" name="txtPassword">
+                </div>
+                <div class="mb-3">
+                    <label for="add-email" class="col-form-label">Email:</label>
+                    <input type="text" class="form-control" id="add-email" name="txtEmail">
+                </div>
+                <div class="mb-3">
+                    <label for="add-type" class="col-form-label">Type:</label>
+                    <input type="text" class="form-control" id="add-type" name="txtType">
+                </div>
+                <div class="mb-3">
+                    <label for="add-display-photo" class="col-form-label">Display Photo:</label>
+                    <input type="text" class="form-control" id="add-display-photo" name="txtDisplayPhoto">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" name="btnEdit">Edit Record</button>
+            </div>
+            </form>
+            </div>
+        </div>
+        </div>
+
         <!-- Delete Confirmation Modal -->
         <div class="modal fade" id="confirmDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -161,7 +203,16 @@
                 </div>
             </div>
         </div>
-
     </div>
+
+    <script>
+        $(document).ready (function() {
+            $('.btnEdit').on('click', function(){
+
+                $('#editRecordModal').modal('show');
+
+            });
+        });
+    </script>
 </body>
 </html>
