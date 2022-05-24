@@ -21,24 +21,27 @@
     <div class="container-fluid">
         <div class="nav">
         <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Active</a>
-            </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+                <a class="nav-link active" data-bs-toggle="dropdown" href="#" role="button">Contents</a>
                 <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                <li><a class="dropdown-item" href="#">Home</a></li>
+                <li><a class="dropdown-item" href="#">About</a></li>
+                <li><a class="dropdown-item" href="#">Subscription</a></li>
+                <li><a class="dropdown-item" href="#">Upload</a></li>
+                <li><a class="dropdown-item" href="#">Error (404)</a></li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Submissions</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button">Accounts</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                    <li><a class="dropdown-item" href="#">View Accounts</a></li>
+                    <li><a class="dropdown-item" href="#">Update Accounts</a></li>
+                    <li><a class="dropdown-item" href="#">Delete Accounts</a></li>
+                </ul>
             </li>
         </ul>
         </div>
