@@ -85,16 +85,13 @@
                         <td><?php echo $ROW['display_photo']; ?></td>
                         <td>
                             <button type="button" class="btn btn-primary btnEdit">Edit</button>
-                            <!-- <form action="" method="POST">
-                                <input type="submit" name="btnEdit" value="Edit">
-                                <input type="hidden" name="btnEditId" value="<?php echo $ROW['idtbladminaccs']; ?>">
-                            </form> -->
                         </td>
                         <td>
-                            <form action="delete-account.php" method="POST">
+                            <button type="button" class="btn btn-danger btnDelete">Delete</button>
+                            <!-- <form action="delete-account.php" method="POST">
                                 <input type="submit" name="btnDelete" value="Delete" class="btn btn-danger btnEdit">
                                 <input type="hidden" name="btnDeleteId" value="<?php echo $ROW['idtbladminaccs']; ?>">
-                            </form>
+                            </form> -->
                         </td>
                     </tr>
                     <?php } ?>
@@ -104,9 +101,9 @@
 
         <!-- Add Record Modal -->
 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRecordModal" data-bs-whatever="@mdo">Add New Record</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRecordModal">Add New Record</button>
         
-        <div class="modal fade" id="addRecordModal" tabindex="-1" aria-labelledby="addRecordModalLabel" aria-hidden="true">
+        <div class="modal fade" id="addRecordModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addRecordModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
@@ -147,7 +144,7 @@
 
         <!-- Edit Record Modal -->
 
-        <div class="modal fade" id="editRecordModal" tabindex="-1" aria-labelledby="editRecordModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editRecordModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editRecordModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
