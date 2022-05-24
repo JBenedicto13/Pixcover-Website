@@ -40,7 +40,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link active" data-bs-toggle="dropdown" href="#" role="button">Accounts</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Manage All Accounts</a></li>
+                    <li><a class="dropdown-item" href="manage-accounts.php">Manage All Accounts</a></li>
                     <li><a class="dropdown-item" href="#">My Profile</a></li>
                 </ul>
             </li>

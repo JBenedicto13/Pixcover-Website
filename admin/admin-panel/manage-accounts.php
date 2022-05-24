@@ -1,4 +1,4 @@
-<?php require ('admin-session.php'); ?>
+<?php require ('../admin-session.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +22,7 @@
         <div class="nav">
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Dashboard</a>
+                <a class="nav-link" href="../admin-panel.php">Dashboard</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button">Contents</a>
@@ -38,10 +38,10 @@
                 <a class="nav-link" href="#">Submissions</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button">Accounts</a>
+                <a class="nav-link active" data-bs-toggle="dropdown" href="#" role="button">Accounts</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="admin-panel/manage-accounts.php">Manage All Accounts</a></li>
-                    <li><a class="dropdown-item" href="admin-panel/profile.php">My Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Manage All Accounts</a></li>
+                    <li><a class="dropdown-item" href="profile.php">My Profile</a></li>
                 </ul>
             </li>
         </ul>
