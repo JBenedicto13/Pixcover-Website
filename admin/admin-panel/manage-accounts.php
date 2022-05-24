@@ -84,7 +84,7 @@
                         <td><?php echo $ROW['type']; ?></td>
                         <td><?php echo $ROW['display_photo']; ?></td>
                         <td>
-                            <button type="button" class="btn btn-success btnEdit">Edit</button>
+                            <button type="button" class="btn btn-primary btnEdit">Edit</button>
                             <!-- <form action="" method="POST">
                                 <input type="submit" name="btnEdit" value="Edit">
                                 <input type="hidden" name="btnEditId" value="<?php echo $ROW['idtbladminaccs']; ?>">
@@ -92,7 +92,7 @@
                         </td>
                         <td>
                             <form action="delete-account.php" method="POST">
-                                <input type="submit" name="btnDelete" value="Delete">
+                                <input type="submit" name="btnDelete" value="Delete" class="btn btn-danger btnEdit">
                                 <input type="hidden" name="btnDeleteId" value="<?php echo $ROW['idtbladminaccs']; ?>">
                             </form>
                         </td>
@@ -154,28 +154,28 @@
                 <h5 class="modal-title" id="editRecordModalLabel">Edit Record</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="add-account.php" method="POST">
+            <form action="update-account.php" method="POST">
             <div class="modal-body">
                 <input type="hidden" id="edit-id" name="edit-id">
                 <div class="mb-3">
                     <label for="edit-username" class="col-form-label">Username:</label>
-                    <input type="text" class="form-control" id="edit-username" name="txtUsername" placeholder="Enter Username">
+                    <input type="text" class="form-control" id="edit-username" name="edit-username" placeholder="Enter Username">
                 </div>
                 <div class="mb-3">
                     <label for="edit-password" class="col-form-label">Password:</label>
-                    <input type="text" class="form-control" id="edit-password" name="txtPassword" placeholder="Enter Password">
+                    <input type="text" class="form-control" id="edit-password" name="edit-password" placeholder="Enter Password">
                 </div>
                 <div class="mb-3">
                     <label for="edit-email" class="col-form-label">Email:</label>
-                    <input type="text" class="form-control" id="edit-email" name="txtEmail" placeholder="Enter Email">
+                    <input type="text" class="form-control" id="edit-email" name="edit-email" placeholder="Enter Email">
                 </div>
                 <div class="mb-3">
                     <label for="edit-type" class="col-form-label">Type:</label>
-                    <input type="text" class="form-control" id="edit-type" name="txtType" placeholder="Enter Type">
+                    <input type="text" class="form-control" id="edit-type" name="edit-type" placeholder="Enter Type">
                 </div>
                 <div class="mb-3">
                     <label for="edit-display-photo" class="col-form-label">Display Photo:</label>
-                    <input type="text" class="form-control" id="edit-display-photo" name="txtDisplayPhoto" placeholder="Enter Display Photo">
+                    <input type="text" class="form-control" id="edit-display-photo" name="edit-display-photo" placeholder="Enter Display Photo">
                 </div>
             </div>
             <div class="modal-footer">
