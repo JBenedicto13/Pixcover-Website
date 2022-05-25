@@ -32,7 +32,7 @@
 </head>
 <body>
     <h1>Hello Welcome <?php echo $_SESSION['username'] ?> to Admin Panel!</h1>
-    <form action="admin-logout.php" method="post"><input class="btn btn-dark" type="submit" name="btnLogout" value="Logout"></form>
+    <form action="../admin-logout.php" method="post"><input class="btn btn-dark" type="submit" name="btnLogout" value="Logout"></form>
 
     <br>
     <div class="container-fluid">
