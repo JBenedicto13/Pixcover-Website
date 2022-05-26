@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="admin-css/main-style.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/header.css">
 
     <!-- JavaScript -->
@@ -17,10 +18,67 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     <script src="admin-js/admin-index.js"></script>
 
+    <style>
+        /* .col {
+            border: 1px solid red;
+        } */
+    </style>
+
     <title>Pixcover</title>
 </head>
 <body>
     <div class="main-container container-fluid">
+        <nav class="navbar sticky-top">
+            <div class="container-fluid ms-5 me-5">
+                <div class="col-2">
+                    <a class="navbar-brand" href="#"><img src="images/Pixcover Geen Symol.png" alt="Pixcover-Logo" width="50" height="50" class="d-inline-block align-text-center"> Pixcover</a>
+                </div>
+                <div class="col-6">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="col-2">
+                    <div class="row justify-content-center">
+                        <div class="col d-flex align-items-center nav-text">
+                            <a class="nav-link" href="#">Join</a>
+                        </div>
+                        <div class="col d-flex align-items-center nav-text">
+                            <a class="nav-link" href="#">Profile</a>
+                        </div>
+                        <div class="col d-flex align-items-center">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Pixcover</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Join</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Profile</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
         <div class="row">
             <div class="header col">
                 <div class="row justify-content-center h-100">
