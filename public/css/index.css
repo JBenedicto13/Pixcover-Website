@@ -25,3 +25,8 @@ body {
 .logo-icon {
     width: 40px;
 }
+
+.filter-drop {
+    border: 1px black yellow;
+    color: #252627;
+}
