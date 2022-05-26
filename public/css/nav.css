@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+.navbar-brand {
+    font-size: xx-large;
+    color: #007f5f;
+}
+
+.navbar-brand:hover {
+    font-size: xx-large;
+    color: #007f5f;
+}
+
+.nav-text {
+    font-weight: 500;
+    font-size: large;
+    text-align: center;
+}
