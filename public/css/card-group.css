@@ -1,5 +1,12 @@
 @charset "utf-8";
-.row .card-group .card img {
-    height: 250px;
-    width: 250px;
+.card-title {
+    color: #fff9fb;
+    opacity: 0.25;
+}
+.card-title:hover {
+    color: #fff9fb;
+    opacity: 1;
+}
+.card {
+    margin-bottom: 30px;
 }
