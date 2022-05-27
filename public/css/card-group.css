@@ -1,0 +1,95 @@
+@charset "utf-8";
+.card {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.image {
+    position: relative;
+    flex: 1;
+    max-width: calc(100%-70px);
+}
+
+.image img{
+    position: relative;
+    vertical-align: top;
+}
+.image img:hover{
+    cursor: pointer;
+}
+
+.more {
+    position: absolute;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.4s;
+    transition-property: opacity;
+}
+
+.image:hover .more{
+    opacity: 1;
+}
+
+.icon-links a{
+    padding: 10px;
+}
+
+.more .icon-links i{
+    color: #fff9fb;
+    font-size: 20px;
+    opacity: 0.80;
+}
+
+.more .icon-links a i:hover {
+    opacity: 1;
+}
+
+.more .icon-links a:not(:last-child) i{
+    margin-right: 20px;
+}
+
+.photographer-info a {
+    text-decoration: none;
+}
+
+.photographer-info a span{
+    color: #fff9fb;
+    font-size: medium;
+    font-weight: 500;
+    padding: 15px;
+    opacity: 0.80;
+}
+
+.photographer-info img{
+    height: 30px;
+    width:30px;
+    border: none;
+    border-radius:100%;
+}
+
+.photographer-info a span:hover {
+    opacity: 1;
+}
+
+a.stretched-link:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+  
+.out-stretch {
+    /* required */
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    color: #fff9fb;
+}
