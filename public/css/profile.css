@@ -17,7 +17,7 @@
     margin-top: 5%;
 }
 
-.avatar-card .card-body button{
+.avatar-card .card-body a{
     margin-top: 10%;
     background-color: #007f5f;
 }
@@ -50,4 +50,15 @@
 .nav-pills .nav-item .active {
     color: #fff9fb;
     background-color: #252627;
+}
+
+/* Edit Profile */
+.edit-row {
+    margin: 10% auto 10%;
+}
+.edit-profile-div {
+    margin: auto;
+    padding: 25px;
+    border: 1px solid #007f5f;
+    border-radius: 20px;
 }
