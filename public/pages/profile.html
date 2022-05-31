@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="admin-css/main-style.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/nav.css">
-    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/card-group.css">
+    <link rel="stylesheet" href="../css/profile.css">
 
     <!-- JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -48,7 +48,7 @@
                             <a class="nav-link" href="#">Join</a>
                         </div>
                         <div class="col d-flex align-items-center nav-text">
-                            <a class="nav-link" href="#">Profile</a>
+                            <a class="nav-link" href="profile.html">Profile</a>
                         </div>
                         <div class="col d-flex align-items-center">
                             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -65,13 +65,13 @@
                     <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Join</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                        <a class="nav-link" href="profile.html">Profile</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
@@ -86,28 +86,33 @@
         <div class="row">
             <div class="header col">
                 <div class="row justify-content-center h-100">
-                    <div class="col b-guide profile-card-div">
-                        <div class="card" style="width: 18rem;">
-                            <img src="../images/DP.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="col">
+                        <div class="card avatar-card justify-content-center" style="width: 18rem;">
+                            <div class="avatar-image">
+                                <img src="../images/DP.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card-body pt-3">
+                                <h5 class="card-title text-uppercase text-center">JB Benedicto</h5>
+                                <button class="btn btn-success">Edit Profile</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-end pt-5 ps-5 pe-5">
-            <div class="col-md-1">
-                <div class="btn-group" role="group">
-                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      Filter
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                      <li><a class="dropdown-item" href="#">By Latest</a></li>
-                      <li><a class="dropdown-item" href="#">By Trending</a></li>
-                    </ul>
-                </div>
+        <div class="row justify-content-start mt-5 ms-5 me-5">
+            <div class="col">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Download</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Followers</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Following</a>
+                    </li>
+                </ul>
             </div>
         </div>
 
