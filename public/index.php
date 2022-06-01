@@ -41,7 +41,7 @@
                             <a class="nav-link" href="#">Join</a>
                         </div>
                         <div class="col d-flex align-items-center nav-text">
-                            <a class="nav-link" href="pages/profile.html">Profile</a>
+                            <a class="nav-link" href="pages/profile.php">Profile</a>
                         </div>
                         <div class="col d-flex align-items-center">
                             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -58,13 +58,13 @@
                     <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Join</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/profile.html">Profile</a>
+                            <a class="nav-link" href="pages/profile.php">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pages/aboutus.html">About</a>
