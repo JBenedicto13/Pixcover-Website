@@ -3,7 +3,8 @@
 .sign-div {
     border: 1px solid #007f5f;
     border-radius: 5px;
-    margin: auto 0;
+    margin-top: 10%;
+    margin-bottom: auto;
 }
 
 .sign-div h2 {
@@ -12,7 +13,7 @@
     padding: 25px 0px;
 }
 
-.sign-div .frmSignup{
+.sign-div .frmSign{
     padding: 0px 10px 15px 10px;
 }
 
@@ -20,4 +21,28 @@
     background-color: #007f5f;
     color: #fff9fb;
     width: 30%;
+}
+
+.sign-div .frmSign .pass-sign {
+    color: #007f5f;
+    text-decoration: none;
+}
+
+
+.sign-div .frmSign .pass-sign p {
+    padding-top: 15px;
+}
+
+.sign-div .frmSign .pass-sign:hover {
+    text-decoration: underline;
+}
+
+.forgot {
+    color: #252627;
+    font-size: 12px;
+    text-decoration: none;
+}
+.forgot:hover {
+    color: #007f5f;
+    text-decoration: underline;
 }
