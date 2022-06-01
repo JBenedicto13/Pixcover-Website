@@ -1,8 +1,11 @@
 <?php
     require ('../php/public-db.php');
     require ('../php/public-session.php');
-    $accounts_result = mysqli_query($CON,"SELECT * FROM tblaccounts");
 
+    $txt_Id = $_SESSION['userid'];
+    
+    $accounts_result = mysqli_query($CON,"SELECT * FROM tblaccounts WHERE idtblaccounts = '$txt_Id'");
+    
     $txt_Fname = "";
     $txt_Lname = "";
     $txt_Name = "";
@@ -56,7 +59,7 @@
                             <a class="nav-link" href="#">Join</a>
                         </div>
                         <div class="col d-flex align-items-center nav-text">
-                            <a class="nav-link" href="profile.html">Profile</a>
+                            <a class="nav-link" href="profile.php">Profile</a>
                         </div>
                         <div class="col d-flex align-items-center">
                             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -73,13 +76,13 @@
                     <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Join</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile.html">Profile</a>
+                            <a class="nav-link" href="profile.php">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pages/aboutus.html">About</a>
@@ -98,13 +101,13 @@
             <div class="header col">
                 <div class="row justify-content-center h-100">
                     <div class="col">
-                        <div class="card avatar-card justify-content-center" style="width: 18rem;">
+                        <div class="card avatar-card justify-content-center" style="width: 20rem;">
                             <div class="avatar-image">
                                 <img src="../images/DP.jpg" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body pt-3">
                                 <?php while ($ROW = mysqli_fetch_array($accounts_result)) { ?>
-                                <h5 class="card-title text-uppercase text-center"><?php echo $ROW['fname'].' '.$ROW['lname']?></h5>
+                                <h5 class="card-title text-uppercase text-center" style="font-size: 24px;"><?php echo $ROW['fname'].' '.$ROW['lname']?></h5>
                                 <a href="edit-profile.html" class="btn btn-success">Edit Profile</a>
                                 <?php } ?>
                             </div>

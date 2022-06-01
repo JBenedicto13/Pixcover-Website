@@ -23,7 +23,7 @@
 
             if (mysqli_num_rows($sqlValidate) > 0) {
                 $_SESSION['status'] = 'valid';
-                $_SESSION['username'] = $rowValidate['username'];
+                $_SESSION['userid'] = $rowValidate['idtblaccounts'];
 
                 echo "<script>clear_form();</script>";
 

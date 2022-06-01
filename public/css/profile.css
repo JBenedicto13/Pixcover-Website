@@ -32,8 +32,8 @@
     border-radius: 100%;
 }
 
-.avatar-card .card-title {
-    font-size: 36px;
+.avatar-card .card-body .card-title {
+    font-size: 24px;
 }
 
 .nav-pills .nav-item {
