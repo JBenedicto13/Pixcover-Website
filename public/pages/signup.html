@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     <script src="https://kit.fontawesome.com/01b3ba1a59.js" crossorigin="anonymous"></script>
 
-    <title>Pixcover</title>
+    <title>Pixcover | Signup</title>
 </head>
 <body>
     <div class="main-container container-fluid">
@@ -39,7 +39,7 @@
                             <a class="nav-link" href="#">Join</a>
                         </div>
                         <div class="col d-flex align-items-center nav-text">
-                            <a class="nav-link" href="pages/profile.html">Profile</a>
+                            <a class="nav-link" href="profile.html">Profile</a>
                         </div>
                         <div class="col d-flex align-items-center">
                             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -56,16 +56,16 @@
                     <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Join</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="pages/profile.html">Profile</a>
+                          <a class="nav-link" href="profile.html">Profile</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="pages/aboutus.html">About</a>
+                          <a class="nav-link" href="aboutus.html">About</a>
                       </li>
                     </ul>
                     <form class="d-flex" role="search">
@@ -76,61 +76,40 @@
                 </div>
             </div>
         </nav>
-        <div class="row justify-content-center" style="height:720px;">
-            <div class="row sign-title">
-                <h2>Signup</h2>
-            </div>
-            <div class="row">
-                <div class="divForm col-md-6" style="background-color:azure; margin: auto;">
-                    <form class="row g-3 needs-validation" novalidate>
-                        <div class="col-md-6">
-                          <label for="txtFname" class="form-label">First name</label>
-                          <input type="text" class="form-control" id="txtFname" required>
-                          <div class="valid-feedback">
-                            Looks good!
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <label for="txtLname" class="form-label">Last name</label>
-                          <input type="text" class="form-control" id="txtLname" required>
-                          <div class="valid-feedback">
-                            Looks good!
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <label for="txtEmail" class="form-label">Username</label>
-                          <div class="input-group has-validation">
-                            <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            <input type="text" class="form-control" id="txtEmail" aria-describedby="inputGroupPrepend" required>
-                            <div class="invalid-feedback">
-                              Please choose a username.
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <label for="txtPassword" class="form-label">Password</label>
-                          <input type="text" class="form-control" id="txtPassword" required>
-                          <div class="invalid-feedback">
-                            Please enter your password.
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                              Agree to terms and conditions
-                            </label>
-                            <div class="invalid-feedback">
-                              You must agree before submitting.
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <button class="btn btn-primary" type="submit">Submit form</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="row justify-content-center" style="height:764px;">
+          <div class="col-md-4 sign-div">
+            <h2>Signup</h2>
+            <form class="row g-3 frmSignup">
+              <div class="col-md-6">
+                <label for="txtFname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="txtFname" placeholder="First Name">
+              </div>
+              <div class="col-md-6">
+                <label for="txtLname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="txtLname" placeholder="Last Name">
+              </div>
+              <div class="col-12">
+                <label for="txtUsername" class="form-label">Username</label>
+                <input type="text" class="form-control" id="txtUsername" placeholder="Username">
+              </div>
+              <div class="col-12">
+                <label for="txtEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="txtEmail" placeholder="Email">
+              </div>
+              <div class="col-12">
+                <label for="txtPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="txtPassword" placeholder="Password">
+              </div>
+              <div class="col-12">
+                <label for="txtConfirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="txtConfirmPassword" placeholder="Confirm Password">
+              </div>
+              
+              <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success">Sign up</button>
+              </div>
+            </form>
+          </div>
         </div>
     </div>
 </body>
