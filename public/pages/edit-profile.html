@@ -7,9 +7,10 @@
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/card-group.css">
+    <link rel="stylesheet" href="../css/profile.css">
 
     <!-- JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -17,7 +18,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     <script src="https://kit.fontawesome.com/01b3ba1a59.js" crossorigin="anonymous"></script>
-    <script src="admin-js/admin-index.js"></script>
+    <script src="../admin-js/admin-index.js"></script>
+
+    <style>
+            .b-guide {
+                border: 1px solid green;
+            }
+    </style>
 
     <title>Pixcover</title>
 </head>
@@ -26,7 +33,7 @@
         <nav class="navbar fixed-top bg-white">
             <div class="container-fluid ms-5 me-5">
                 <div class="col-2">
-                    <a class="navbar-brand" href="#"><img src="images/Pixcover Geen Symol.png" alt="Pixcover-Logo" width="50" height="50" class="d-inline-block align-text-center"> Pixcover</a>
+                    <a class="navbar-brand" href="#"><img src="../images/Pixcover Geen Symol.png" alt="Pixcover-Logo" width="50" height="50" class="d-inline-block align-text-center"> Pixcover</a>
                 </div>
                 <div class="col-6">
                     <form class="d-flex" role="search">
@@ -77,32 +84,49 @@
                 </div>
             </div>
         </nav>
-        <div class="row">
-            <div class="header col">
-                <div class="row justify-content-center h-100">
-                    <div class="col-6 align-self-center">
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-search" type="submit">Search</button>
-                        </form>
+        
+        <div class="row justify-content-center edit-row">
+            <div class="col-md-4 b-guide edit-profile-div">
+                <form class="row g-3">
+                    <div class="col-md-6">
+                      <label for="txtFname" class="form-label">First Name</label>
+                      <input type="text" class="form-control" id="txtFname">
                     </div>
-                </div>
+                    <div class="col-md-6">
+                      <label for="txtLname" class="form-label">Last Name</label>
+                      <input type="text" class="form-control" id="txtLname">
+                    </div>
+                    <div class="col-12">
+                        <label for="txtEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="txtEmail">
+                      </div>
+                    <div class="col-12">
+                      <label for="txtGcashNum" class="form-label">Gcash Number</label>
+                      <input type="number" class="form-control" id="txtGcashNum" placeholder="09*********">
+                    </div>
+                    <div class="col-12">
+                      <label for="txtShortBio" class="form-label">Short Bio</label>
+                      <textarea class="form-control" id="txtShortBio" rows="3"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label for="txtWebsite" class="form-label">Website</label>
+                        <input type="url" class="form-control" id="txtWebsite">
+                    </div>
+                    <div class="col-12">
+                        <label for="txtSocialMedia" class="form-label">Social Media Handles</label>
+                        <input type="text" class="form-control" id="txtSocialMedia">
+                    </div>
+                    <div class="col-12">
+                        <label for="txtLocation" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="txtLocation">
+                    </div>
+                    
+                    <div class="col-6 offset-8 pt-3">
+                      <button type="submit" class="btn btn-primary">Update Profile</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="row justify-content-end pt-5 ps-5 pe-5">
-            <div class="col-md-1">
-                <div class="btn-group" role="group">
-                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      Filter
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                      <li><a class="dropdown-item" href="#">By Latest</a></li>
-                      <li><a class="dropdown-item" href="#">By Trending</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
 
         </div>
     </div>
