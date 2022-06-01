@@ -79,34 +79,34 @@
         <div class="row justify-content-center" style="height:1080px;">
           <div class="col-md-4 sign-div">
             <h2>Signup</h2>
-            <form class="row g-3 frmSign">
+            <form action="../php/accounts-php/public-add-account.php" method="post" class="row g-3 frmSign">
               <div class="col-md-6">
                 <label for="txtFname" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="txtFname" placeholder="First Name">
+                <input type="text" class="form-control" id="txtFname" placeholder="First Name" name="txtFname">
               </div>
               <div class="col-md-6">
                 <label for="txtLname" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="txtLname" placeholder="Last Name">
+                <input type="text" class="form-control" id="txtLname" placeholder="Last Name" name="txtLname">
               </div>
               <div class="col-12">
                 <label for="txtUsername" class="form-label">Username</label>
-                <input type="text" class="form-control" id="txtUsername" placeholder="Username">
+                <input type="text" class="form-control" id="txtUsername" placeholder="Username" name="txtUsername">
               </div>
               <div class="col-12">
                 <label for="txtEmail" class="form-label">Email</label>
-                <input type="email" class="form-control" id="txtEmail" placeholder="Email">
+                <input type="email" class="form-control" id="txtEmail" placeholder="Email" name="txtEmail">
               </div>
               <div class="col-12">
                 <label for="txtPassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="txtPassword" placeholder="Password">
+                <input type="password" class="form-control" id="txtPassword" placeholder="Password" name="txtPassword">
               </div>
               <div class="col-12">
                 <label for="txtConfirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="txtConfirmPassword" placeholder="Confirm Password">
+                <input type="password" class="form-control" id="txtConfirmPassword" placeholder="Confirm Password" name="txtConfirmPassword">
               </div>
               
               <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-success btnSignup">Sign up</button>
+                <button type="submit" class="btn btn-success btnSignup" name="btnSignup">Sign up</button>
                 <a class="pass-sign" href="siginin.html"><p>Already have an account?</p></a>
               </div>
             </form>
