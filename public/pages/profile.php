@@ -1,3 +1,12 @@
+<?php
+    require ('../php/public-db.php');
+    require ('../php/public-session.php');
+    $accounts_result = mysqli_query($CON,"SELECT * FROM tblaccounts");
+
+    $txt_Fname = "";
+    $txt_Lname = "";
+    $txt_Name = "";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +18,8 @@
 
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/nav.css">
-    <link rel="stylesheet" href="../css/registration.css">
+    <link rel="stylesheet" href="../css/card-group.css">
+    <link rel="stylesheet" href="../css/profile.css">
 
     <!-- JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -17,8 +27,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     <script src="https://kit.fontawesome.com/01b3ba1a59.js" crossorigin="anonymous"></script>
+    <script src="../admin-js/admin-index.js"></script>
 
-    <title>Pixcover | Signin</title>
+    <style>
+            .b-guide {
+                border: 1px solid green;
+            }
+    </style>
+
+    <title>Pixcover</title>
 </head>
 <body>
     <div class="main-container container-fluid">
@@ -62,11 +79,11 @@
                             <a class="nav-link" href="#">Join</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="profile.html">Profile</a>
+                            <a class="nav-link" href="profile.html">Profile</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="aboutus.html">About</a>
-                      </li>
+                            <a class="nav-link" href="pages/aboutus.html">About</a>
+                        </li>
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -76,32 +93,45 @@
                 </div>
             </div>
         </nav>
-        <div class="row justify-content-center" style="height:720px;">
-          <div class="col-md-4 sign-div">
-            <h2>Signin</h2>
-            <form class="row g-3 frmSign">
-              <div class="col-12">
-                <label for="txtUsernameEmail" class="form-label">Username or Email</label>
-                <input type="text" class="form-control" id="txtUsernameEmail" placeholder="Username or Email">
-              </div>
-              <div class="col-12">
-                <div class="row">
+        
+        <div class="row">
+            <div class="header col">
+                <div class="row justify-content-center h-100">
                     <div class="col">
-                        <label for="txtPassword" class="form-label">Password</label>
-                    </div>
-                    <div class="col text-end">
-                        <a class="forgot" href="#"><p>Forgot your password?</p></a>
+                        <div class="card avatar-card justify-content-center" style="width: 18rem;">
+                            <div class="avatar-image">
+                                <img src="../images/DP.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card-body pt-3">
+                                <?php while ($ROW = mysqli_fetch_array($accounts_result)) { ?>
+                                <h5 class="card-title text-uppercase text-center"><?php echo $ROW['fname'].' '.$ROW['lname']?></h5>
+                                <a href="edit-profile.html" class="btn btn-success">Edit Profile</a>
+                                <?php } ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <input type="password" class="form-control" id="txtPassword" placeholder="Password">
-              </div>
-              
-              <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-success btnSignin">Sign in</button>
-                <a class="pass-sign" href="signup.html"><p>Doesn't have an account yet?</p></a>
-              </div>
-            </form>
-          </div>
+            </div>
+        </div>
+        <div class="row justify-content-start mt-5 ms-5 me-5">
+            <div class="col">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Download</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Followers</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Following</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../php/public-signout.php">Signout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         </div>
     </div>
 </body>
