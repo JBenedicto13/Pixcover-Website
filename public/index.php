@@ -27,7 +27,7 @@
         <nav class="navbar fixed-top bg-white">
             <div class="container-fluid ms-5 me-5">
                 <div class="col-2">
-                    <a class="navbar-brand" href="#"><img src="images/Pixcover Geen Symol.png" alt="Pixcover-Logo" width="50" height="50" class="d-inline-block align-text-center"> Pixcover</a>
+                    <a class="navbar-brand" href="index.php"><img src="images/Pixcover Geen Symol.png" alt="Pixcover-Logo" width="50" height="50" class="d-inline-block align-text-center"> Pixcover</a>
                 </div>
                 <div class="col-6">
                     <form class="d-flex" role="search">

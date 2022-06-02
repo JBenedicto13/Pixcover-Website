@@ -6,7 +6,7 @@
     if ($_SESSION['status'] == "invalid" || empty($_SESSION['status'])) {
         $_SESSION['status'] == "invalid";
     } else {
-        echo "<script>window.location.href = '../index.html'</script>";
+        echo "<script>window.location.href = '../index.php'</script>";
     }
 
     if (isset($_POST['btnSignin'])) {
@@ -63,7 +63,7 @@
         <nav class="navbar fixed-top bg-white">
             <div class="container-fluid ms-5 me-5">
                 <div class="col-2">
-                    <a class="navbar-brand" href="#"><img src="../images/Pixcover Geen Symol.png" alt="Pixcover-Logo" width="50" height="50" class="d-inline-block align-text-center"> Pixcover</a>
+                    <a class="navbar-brand" href="../index.php"><img src="../images/Pixcover Geen Symol.png" alt="Pixcover-Logo" width="50" height="50" class="d-inline-block align-text-center"> Pixcover</a>
                 </div>
                 <div class="col-6">
                     <form class="d-flex" role="search">
@@ -94,7 +94,7 @@
                     <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Join</a>
