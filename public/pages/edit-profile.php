@@ -5,7 +5,7 @@
     $txt_Id = $_SESSION['userid'];
     
     $accounts_result = mysqli_query($CON,"
-    SELECT fname, lname, email, gcash_num, short_bio, website, socsci_handles, location
+    SELECT tblaccounts.idtblaccounts, fname, lname, email, gcash_num, short_bio, website, socsci_handles, location
     FROM tblaccounts
     JOIN tbladdinfo
     ON tblaccounts.idtblaccounts = tbladdinfo.idtblaccounts
@@ -123,9 +123,27 @@
                             color: #007f5f;
                             border: 1px solid #007f5f;
                         }
-
+                        .avatar_img img{
+                            height: 75px;
+                            width: 75px;
+                            border: none;
+                            border-radius: 50%;
+                        }
+                        #inpChangeDP {
+                            border-color: #007f5f;
+                        }
                     </style>
-                <form class="row g-3">
+                <form action="../php/accounts-php/public-update-account.php" method="post" class="row g-3">
+                    <input type="hidden" id="updateId" name="updateId" value="<?php echo $ROW['idtblaccounts']; ?>">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-md-3 text-center"><h5>Avatar</h5></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 avatar_img"><img src="../images/DP.jpg" alt="display photo"></div>
+                            <div class="col-md-9"><input type="file" class="form-control" id="inpChangeDP"></div>
+                        </div>
+                    </div>
                     <div class="col-md-6">
                       <label for="txtFname" class="form-label">First Name</label>
                       <input type="text" class="form-control" id="txtFname" value="<?php echo $ROW['fname']; ?>" placeholder="Add your first name">
@@ -158,16 +176,13 @@
                         <label for="txtLocation" class="form-label">Location</label>
                         <input type="text" class="form-control" id="txtLocation" value="<?php echo $ROW['location']; ?>" placeholder="Add your location">
                     </div>
-                    
                     <div class="col pt-3 text-end div-btn">
-                      <button type="submit" class="btn btn-primary btnUpdate">Update Profile</button>
-                      <button class="btn btn-primary btnCancel">Cancel</button>
+                      <button type="submit" class="btn btn-primary btnUpdate" id="btnUpdate">Update Profile</button>
+                      <button type="submit" class="btn btn-primary btnCancel" id="btnCancel">Cancel</button>
                     </div>
                 </form>
                 <?php } ?>
             </div>
-        </div>
-
         </div>
     </div>
 </body>
