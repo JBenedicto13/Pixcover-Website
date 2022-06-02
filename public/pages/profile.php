@@ -5,10 +5,6 @@
     $txt_Id = $_SESSION['userid'];
     
     $accounts_result = mysqli_query($CON,"SELECT * FROM tblaccounts WHERE idtblaccounts = '$txt_Id'");
-    
-    $txt_Fname = "";
-    $txt_Lname = "";
-    $txt_Name = "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,7 +104,7 @@
                             <div class="card-body pt-3">
                                 <?php while ($ROW = mysqli_fetch_array($accounts_result)) { ?>
                                 <h5 class="card-title text-uppercase text-center" style="font-size: 24px;"><?php echo $ROW['fname'].' '.$ROW['lname']?></h5>
-                                <a href="edit-profile.html" class="btn btn-success">Edit Profile</a>
+                                <a href="edit-profile.php" class="btn btn-success">Edit Profile</a>
                                 <?php } ?>
                             </div>
                         </div>

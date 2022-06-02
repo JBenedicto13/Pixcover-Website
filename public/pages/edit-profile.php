@@ -1,3 +1,17 @@
+<?php
+    require ('../php/public-db.php');
+    require ('../php/public-session.php');
+
+    $txt_Id = $_SESSION['userid'];
+    
+    $accounts_result = mysqli_query($CON,"
+    SELECT fname, lname, email, gcash_num, short_bio, website, socsci_handles, location
+    FROM tblaccounts
+    JOIN tbladdinfo
+    ON tblaccounts.idtblaccounts = tbladdinfo.idtblaccounts
+    WHERE tblaccounts.idtblaccounts = '$txt_Id';
+    ");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,44 +101,70 @@
         
         <div class="row justify-content-center edit-row">
             <div class="col-md-4 b-guide edit-profile-div">
+                <?php while ($ROW = mysqli_fetch_array($accounts_result)) { ?>
+                    <style>
+                        .btnUpdate {
+                            background-color: #007f5f;
+                            color: #fff9fb;
+                            border: none;
+                        }
+                        .btnUpdate:hover {
+                            background: none;
+                            color: #007f5f;
+                            border: 1px solid #007f5f;
+                        }
+                        .btnCancel {
+                            background: none;
+                            color: #007f5f;
+                            border: 1px solid #007f5f;
+                        }
+                        .btnCancel:hover {
+                            background: none;
+                            color: #007f5f;
+                            border: 1px solid #007f5f;
+                        }
+
+                    </style>
                 <form class="row g-3">
                     <div class="col-md-6">
                       <label for="txtFname" class="form-label">First Name</label>
-                      <input type="text" class="form-control" id="txtFname">
+                      <input type="text" class="form-control" id="txtFname" value="<?php echo $ROW['fname']; ?>" placeholder="Add your first name">
                     </div>
                     <div class="col-md-6">
                       <label for="txtLname" class="form-label">Last Name</label>
-                      <input type="text" class="form-control" id="txtLname">
+                      <input type="text" class="form-control" id="txtLname" value="<?php echo $ROW['lname']; ?>" placeholder="Add your last name">
                     </div>
                     <div class="col-12">
                         <label for="txtEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="txtEmail">
+                        <input type="email" class="form-control" id="txtEmail" value="<?php echo $ROW['email']; ?>" placeholder="Add your email">
                       </div>
                     <div class="col-12">
-                      <label for="txtGcashNum" class="form-label">Gcash Number</label>
-                      <input type="number" class="form-control" id="txtGcashNum" placeholder="09*********">
+                      <label for="txtGcashNum" class="form-label">GCash Number</label>
+                      <input type="text" class="form-control" id="txtGcashNum" value="<?php echo $ROW['gcash_num']; ?>" placeholder="09*********">
                     </div>
                     <div class="col-12">
                       <label for="txtShortBio" class="form-label">Short Bio</label>
-                      <textarea class="form-control" id="txtShortBio" rows="3"></textarea>
+                      <textarea class="form-control" id="txtShortBio" rows="3" placeholder="Tell something about yourself"><?php echo $ROW['short_bio']; ?></textarea>
                     </div>
                     <div class="col-12">
                         <label for="txtWebsite" class="form-label">Website</label>
-                        <input type="url" class="form-control" id="txtWebsite">
+                        <input type="url" class="form-control" id="txtWebsite" value="<?php echo $ROW['website']; ?>" placeholder="Add your website link">
                     </div>
                     <div class="col-12">
                         <label for="txtSocialMedia" class="form-label">Social Media Handles</label>
-                        <input type="text" class="form-control" id="txtSocialMedia">
+                        <input type="text" class="form-control" id="txtSocialMedia" value="<?php echo $ROW['socsci_handles']; ?>" placeholder="Add your social media handles">
                     </div>
                     <div class="col-12">
                         <label for="txtLocation" class="form-label">Location</label>
-                        <input type="text" class="form-control" id="txtLocation">
+                        <input type="text" class="form-control" id="txtLocation" value="<?php echo $ROW['location']; ?>" placeholder="Add your location">
                     </div>
                     
-                    <div class="col-6 offset-8 pt-3">
-                      <button type="submit" class="btn btn-primary">Update Profile</button>
+                    <div class="col pt-3 text-end div-btn">
+                      <button type="submit" class="btn btn-primary btnUpdate">Update Profile</button>
+                      <button class="btn btn-primary btnCancel">Cancel</button>
                     </div>
                 </form>
+                <?php } ?>
             </div>
         </div>
 

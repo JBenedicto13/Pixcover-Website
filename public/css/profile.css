@@ -62,3 +62,8 @@
     border: 1px solid #007f5f;
     border-radius: 5px;
 }
+
+.edit-profile-div {
+    background-color: #007f5f;
+    color: #fff9fb
+}
