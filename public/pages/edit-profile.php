@@ -133,7 +133,7 @@
                             border-color: #007f5f;
                         }
                     </style>
-                <form action="../php/accounts-php/public-update-account.php" method="post" class="row g-3">
+                <form action="../php/accounts-php/public-update-account.php" method="POST" class="row g-3">
                     <input type="hidden" id="updateId" name="updateId" value="<?php echo $ROW['idtblaccounts']; ?>">
                     <div class="col-12">
                         <div class="row">
@@ -146,39 +146,39 @@
                     </div>
                     <div class="col-md-6">
                       <label for="txtFname" class="form-label">First Name</label>
-                      <input type="text" class="form-control" id="txtFname" value="<?php echo $ROW['fname']; ?>" placeholder="Add your first name">
+                      <input type="text" class="form-control" id="txtFname" name="edit-txtFname" value="<?php echo $ROW['fname']; ?>" placeholder="Add your first name">
                     </div>
                     <div class="col-md-6">
                       <label for="txtLname" class="form-label">Last Name</label>
-                      <input type="text" class="form-control" id="txtLname" value="<?php echo $ROW['lname']; ?>" placeholder="Add your last name">
+                      <input type="text" class="form-control" id="txtLname" name="edit-txtLname" value="<?php echo $ROW['lname']; ?>" placeholder="Add your last name">
                     </div>
                     <div class="col-12">
                         <label for="txtEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="txtEmail" value="<?php echo $ROW['email']; ?>" placeholder="Add your email">
+                        <input type="email" class="form-control" id="txtEmail" name="edit-txtEmail" value="<?php echo $ROW['email']; ?>" placeholder="Add your email">
                       </div>
                     <div class="col-12">
                       <label for="txtGcashNum" class="form-label">GCash Number</label>
-                      <input type="text" class="form-control" id="txtGcashNum" value="<?php echo $ROW['gcash_num']; ?>" placeholder="09*********">
+                      <input type="text" class="form-control" id="txtGcashNum" name="edit-txtGcashNum" value="<?php echo $ROW['gcash_num']; ?>" placeholder="09*********">
                     </div>
                     <div class="col-12">
                       <label for="txtShortBio" class="form-label">Short Bio</label>
-                      <textarea class="form-control" id="txtShortBio" rows="3" placeholder="Tell something about yourself"><?php echo $ROW['short_bio']; ?></textarea>
+                      <textarea class="form-control" id="txtShortBio" name="edit-txtShortBio" rows="3" placeholder="Tell something about yourself"><?php echo $ROW['short_bio']; ?></textarea>
                     </div>
                     <div class="col-12">
                         <label for="txtWebsite" class="form-label">Website</label>
-                        <input type="url" class="form-control" id="txtWebsite" value="<?php echo $ROW['website']; ?>" placeholder="Add your website link">
+                        <input type="url" class="form-control" id="txtWebsite" name="edit-txtWebsite" value="<?php echo $ROW['website']; ?>" placeholder="Add your website link">
                     </div>
                     <div class="col-12">
                         <label for="txtSocialMedia" class="form-label">Social Media Handles</label>
-                        <input type="text" class="form-control" id="txtSocialMedia" value="<?php echo $ROW['socsci_handles']; ?>" placeholder="Add your social media handles">
+                        <input type="text" class="form-control" id="txtSocialMedia" name="edit-txtSocialMedia" value="<?php echo $ROW['socsci_handles']; ?>" placeholder="Add your social media handles">
                     </div>
                     <div class="col-12">
                         <label for="txtLocation" class="form-label">Location</label>
-                        <input type="text" class="form-control" id="txtLocation" value="<?php echo $ROW['location']; ?>" placeholder="Add your location">
+                        <input type="text" class="form-control" id="txtLocation" name="edit-txtLocation" value="<?php echo $ROW['location']; ?>" placeholder="Add your location">
                     </div>
                     <div class="col pt-3 text-end div-btn">
-                      <button type="submit" class="btn btn-primary btnUpdate" id="btnUpdate">Update Profile</button>
-                      <button type="submit" class="btn btn-primary btnCancel" id="btnCancel">Cancel</button>
+                      <button type="submit" class="btn btn-primary btnUpdate" name="btnUpdate">Update Profile</button>
+                      <button type="submit" class="btn btn-primary btnCancel" name="btnCancel">Cancel</button>
                     </div>
                 </form>
                 <?php } ?>

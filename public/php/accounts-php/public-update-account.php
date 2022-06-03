@@ -1,26 +1,25 @@
 <?php 
 	require('../public-db.php');
 
-    if(isset($_POST['btnCancel'])) {
-        echo 'Yehey!';
-    } else {
-        echo 'Nah';
-    }
+	if (isset($_POST['btnUpdate'])) {
+		$updateId = $_POST['updateId'];
+		$update_txtFname = $_POST['edit-txtFname'];
+		$update_txtLname = $_POST['edit-txtLname'];
+		$update_txtEmail = $_POST['edit-txtEmail'];
+		// $update_txtPassword = $_POST['edit-txtPassword'];
+		$update_txtGcashNum = $_POST['edit-txtGcashNum'];
+        $update_txtShortBio = $_POST['edit-txtShortBio'];
+		$update_txtWebsite = $_POST['edit-txtWebsite'];
+		$update_txtSocialMedia = $_POST['edit-txtSocialMedia'];
+		$update_txtLocation = $_POST['edit-txtLocation'];
 
-	// if (isset($_POST['btnUpdate'])) {
-	// 	$updateId = $_POST['edit-id'];
-	// 	$update_txtUsername = $_POST['edit-username'];
-	// 	$update_txtPassword = $_POST['edit-password'];
-    //     $update_txtEmail = $_POST['edit-email'];
-	// 	$update_txtType = $_POST['edit-type'];
-    //     $update_txtDisplayPhoto = $_POST['edit-display-photo'];
+		mysqli_query($CON, "UPDATE tblaccounts SET fname='$update_txtFname', lname='$update_txtLname', email='$update_txtEmail' 
+		WHERE idtblaccounts='$updateId'");
 
-	// 	mysqli_query($CON, "UPDATE tbladminaccs SET username = '$update_txtUsername', password = '$update_txtPassword', email = '$update_txtEmail', type = '$update_txtType', display_photo = '$update_txtDisplayPhoto' WHERE idtbladminaccs = '$updateId';");
+		mysqli_query($CON, "UPDATE tbladdinfo SET gcash_num='$update_txtGcashNum', short_bio='$update_txtShortBio', website='$update_txtWebsite', socsci_handles='$update_txtSocialMedia', location='$update_txtLocation' 
+		WHERE idtblaccounts='$updateId'");
 
-	// 	echo '<script> alert("Sucessfully Updated!") </script>';
-	// 	echo '<script> window.location.href = "manage-accounts.php" </script>';
-    //     $update_Id = $_POST['updateId'];
-        
-    //     echo '<script> alert("Sucessfully Updated!") </script>';
-	// }
+		echo '<script> alert("Sucessfully Updated!") </script>';
+		echo '<script> window.location.href = "../../pages/edit-profile.php" </script>';
+	}
  ?>
