@@ -19,6 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     <script src="https://kit.fontawesome.com/01b3ba1a59.js" crossorigin="anonymous"></script>
     <script src="admin-js/admin-index.js"></script>
+    <script src="js/nav.js"></script>
 
     <title>Pixcover</title>
 </head>
@@ -41,7 +42,7 @@
                             <a class="nav-link" href="#">Join</a>
                         </div>
                         <div class="col d-flex align-items-center nav-text">
-                            <a class="nav-link" href="pages/profile.php">Profile</a>
+                            <a class="nav-link" href="#" id="profStat" onclick="indexCheckStatus()";><?php require('php/session-changeStatus.php'); ?></a>
                         </div>
                         <div class="col d-flex align-items-center">
                             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
