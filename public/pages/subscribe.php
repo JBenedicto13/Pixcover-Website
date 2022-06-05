@@ -1,40 +1,3 @@
-<?php
-    require ('../php/public-db.php');
-
-    session_start();
-
-    if ($_SESSION['status'] == "invalid" || empty($_SESSION['status'])) {
-        $_SESSION['status'] == "invalid";
-    } else {
-        echo "<script>window.location.href = '../index.php'</script>";
-    }
-
-    if (isset($_POST['btnSignin'])) {
-        $txt_usernameemail = trim($_POST['txtUsernameEmail']);
-        $txt_password = trim($_POST['txtPassword']);
-
-        if (empty($txt_usernameemail) || empty($txt_password)) {
-            echo "<script>alert('Please fill up all fields.');</script>";
-        } else {
-            
-            $queryValidate = "SELECT * FROM tblaccounts WHERE username = '$txt_usernameemail' AND password = '$txt_password' OR email = '$txt_usernameemail' AND password = '$txt_password'";
-            $sqlValidate = mysqli_query($CON, $queryValidate);
-            $rowValidate = mysqli_fetch_assoc($sqlValidate);
-
-            if (mysqli_num_rows($sqlValidate) > 0) {
-                $_SESSION['status'] = 'valid';
-                $_SESSION['userid'] = $rowValidate['idtblaccounts'];
-
-                echo "<script>clear_form();</script>";
-
-                echo "<script>window.location.href = 'profile.php'</script>";
-            } else {
-                $_SESSION['status'] = 'invalid';
-                echo "Invalid Credentials";
-            }
-        }
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +9,7 @@
 
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/nav.css">
-    <link rel="stylesheet" href="../css/registration.css">
+    <link rel="stylesheet" href="../css/subscribe.css">
 
     <!-- JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -54,9 +17,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     <script src="https://kit.fontawesome.com/01b3ba1a59.js" crossorigin="anonymous"></script>
-    <script src="../js/public-script.js"></script>
+    <script src="js/nav.js"></script>
 
-    <title>Pixcover | Signin</title>
+    <title>Pixcover | Subscribe</title>
 </head>
 <body>
     <div class="main-container container-fluid">
@@ -77,7 +40,7 @@
                             <a class="nav-link" href="subscribe.php">Join</a>
                         </div>
                         <div class="col d-flex align-items-center nav-text">
-                            <a class="nav-link" href="profile.php" id="navProfile">Signin</a>
+                        <a class="nav-link" href="#" id="profStat" onclick="indexCheckStatus()";><?php require('../php/session-changeStatus.php'); ?></a>
                         </div>
                         <div class="col d-flex align-items-center">
                             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -114,32 +77,86 @@
                 </div>
             </div>
         </nav>
-        <div class="row justify-content-center" style="height:720px;">
-          <div class="col-md-4 sign-div">
-            <h2>Signin</h2>
-            <form method="POST" class="row g-3 frmSign">
-              <div class="col-12">
-                <label for="txtUsernameEmail" class="form-label">Username or Email</label>
-                <input type="text" class="form-control" id="txtUsernameEmail" placeholder="Username or Email" name="txtUsernameEmail">
-              </div>
-              <div class="col-12">
-                <div class="row">
-                    <div class="col">
-                        <label for="txtPassword" class="form-label">Password</label>
+        <div class="row subs-cover">
+            <div class="col-md-6">
+                <h2>Unleash your creativity</h2>
+                <p>Get access to over 26,183,000  Premium Photo/Video. Download what you want, cancel when you want</p>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-md-5">
+                <table class="table table-hover table-borderless" style="width: 100%;">
+                    <thead>
+                      <tr>
+                        <th scope="col-md-6"></th>
+                        <th scope="col">Free</th>
+                        <th scope="col">Premium</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><p>
+                            Access to Free Photo and Video contents of Pixcover
+                        </p></td>
+                        <td><i class="fa-solid fa-check"></i></td>
+                        <td><i class="fa-solid fa-check"></td>
+                      </tr>
+                      <tr>
+                        <td><p>
+                            Access to Premium Photo and Video contents of Pixcover
+                        </p></td>
+                        <td><i class="fa-solid fa-xmark"></i></td>
+                        <td><i class="fa-solid fa-check"></td>
+                      </tr>
+                      <tr>
+                        <td><p>
+                            The daily download limit has been increased to 100 contents (including any type of photos/videos).
+                        </p></td>
+                        <td><i class="fa-solid fa-xmark"></i></td>
+                        <td><i class="fa-solid fa-check"></td>
+                      </tr>
+                      <tr>
+                        <td><p>
+                            When using Pixcover photos, no attribution is required.
+                        </p></td>
+                        <td><i class="fa-solid fa-xmark"></i></td>
+                        <td><i class="fa-solid fa-check"></td>
+                      </tr>
+                      <tr>
+                        <td><p>
+                            While using the website, no advertisements will be displayed.
+                        </p></td>
+                        <td><i class="fa-solid fa-xmark"></i></td>
+                        <td><i class="fa-solid fa-check"></td>
+                      </tr>
+                      <tr>
+                        <td><p>
+                            When submitting a request ticket, you will receive priority support from our team
+                        </p></td>
+                        <td><i class="fa-solid fa-xmark"></i></td>
+                        <td><i class="fa-solid fa-check"></td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-5">
+                <div class="row subs-card">
+                    <div class="col-md-8">
+                        <h5>12 MONTHS</h5>
+                        <h5><b class="price">P400</b>/month</h5>
+                        <p>P4,800 every 12 months</p>
                     </div>
-                    <div class="col text-end">
-                        <a class="forgot" href="#"><p>Forgot your password?</p></a>
-                    </div>
+                    <div class="col-md-4 d-flex align-items-center justify-content-end"><button class="btn btn-primary">Subscribe</button></div>
                 </div>
-                <input type="password" class="form-control" id="txtPassword" placeholder="Password" name="txtPassword">
-              </div>
-              
-              <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-success btnSignin" name="btnSignin">Sign in</button>
-                <a class="pass-sign" href="signup.html"><p>Doesn't have an account yet?</p></a>
-              </div>
-            </form>
-          </div>
+                <br><br>
+                <div class="row subs-card">
+                    <div class="col-md-8">
+                        <h5>1 MONTH</h5>
+                        <h5><b class="price">P500</b>/month</h5>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-center justify-content-end"><button class="btn btn-primary diverted-btn">Subscribe</button></div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

@@ -1,14 +1,25 @@
 <?php
     require ('../php/public-db.php');
-    require ('../php/public-session.php');
 
+    session_start();
+    if ($_SESSION['status'] == "invalid" || empty($_SESSION['status'])) {
+        $_SESSION['status'] = "invalid";
+        unset($_SESSION['username']);
+        echo "<script>window.location.href = '../pages/signin.php'</script>";
+    } else {
+        echo "<script>
+            var status = ".$_SESSION['status'].";
+            if (status === 'valid') {
+                alert(status);
+            } else {
+                document.getElementById('navProfile').innerHTML = 'Signin/Signup';
+            }
+        </script>";
+    }
+    
     $txt_Id = $_SESSION['userid'];
     
     $accounts_result = mysqli_query($CON,"SELECT * FROM tblaccounts WHERE idtblaccounts = '$txt_Id'");
-    
-    $txt_Fname = "";
-    $txt_Lname = "";
-    $txt_Name = "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,22 +41,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     <script src="https://kit.fontawesome.com/01b3ba1a59.js" crossorigin="anonymous"></script>
-    <script src="../admin-js/admin-index.js"></script>
 
-    <style>
-            .b-guide {
-                border: 1px solid green;
-            }
-    </style>
-
-    <title>Pixcover</title>
+    <title>Pixcover | Profile</title>
 </head>
 <body>
     <div class="main-container container-fluid">
         <nav class="navbar fixed-top bg-white">
             <div class="container-fluid ms-5 me-5">
                 <div class="col-2">
-                    <a class="navbar-brand" href="#"><img src="../images/Pixcover Geen Symol.png" alt="Pixcover-Logo" width="50" height="50" class="d-inline-block align-text-center"> Pixcover</a>
+                    <a class="navbar-brand" href="../index.php"><img src="../images/Pixcover Geen Symol.png" alt="Pixcover-Logo" width="50" height="50" class="d-inline-block align-text-center"> Pixcover</a>
                 </div>
                 <div class="col-6">
                     <form class="d-flex" role="search">
@@ -56,10 +60,10 @@
                 <div class="col-2">
                     <div class="row justify-content-center">
                         <div class="col d-flex align-items-center nav-text">
-                            <a class="nav-link" href="#">Join</a>
+                            <a class="nav-link" href="subscribe.php">Join</a>
                         </div>
                         <div class="col d-flex align-items-center nav-text">
-                            <a class="nav-link" href="profile.php">Profile</a>
+                            <a class="nav-link" href="profile.php" id="navProfile">Profile</a>
                         </div>
                         <div class="col d-flex align-items-center">
                             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -79,7 +83,7 @@
                         <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Join</a>
+                            <a class="nav-link" href="subscribe.php">Join</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="profile.php">Profile</a>
@@ -108,7 +112,7 @@
                             <div class="card-body pt-3">
                                 <?php while ($ROW = mysqli_fetch_array($accounts_result)) { ?>
                                 <h5 class="card-title text-uppercase text-center" style="font-size: 24px;"><?php echo $ROW['fname'].' '.$ROW['lname']?></h5>
-                                <a href="edit-profile.html" class="btn btn-success">Edit Profile</a>
+                                <a href="edit-profile.php" class="btn btn-success">Edit Profile</a>
                                 <?php } ?>
                             </div>
                         </div>
