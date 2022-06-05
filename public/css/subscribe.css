@@ -1,0 +1,68 @@
+@charset "utf-8";
+.subs-cover {
+    height: 360px;
+    width: 100%;
+    padding-top: 10%;
+    background-image: url('../images/samplebg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.subs-cover .col-md-6 {
+    padding-left: 10%;
+    color: #fff9fb;
+}
+
+.row .col-md-5 {
+    padding-left: 10%;
+}
+
+table tbody tr .fa-check {
+    color: darkgreen;
+    font-size: x-large;
+}
+table tbody tr .fa-xmark {
+    color: darkred;
+    font-size: x-large;
+}
+
+table tbody tr {
+    text-align: center;
+}
+
+table thead {
+    border-bottom: 1px solid #252627;
+}
+
+table {
+    border: 1px solid #252627;
+}
+
+.col-md-5 .row .col-md-8 h5 .price {
+    font-size: xx-large;
+    font-weight: 500;
+}
+
+.subs-card {
+    border: 1px solid #252627;
+    border-radius: 5px;
+    padding: 10px 5px;
+}
+
+.subs-card .col-md-4 button {
+    background-color: #007f5f;
+    color: #fff9fb;
+    border: none;
+}
+
+.subs-card .col-md-4 button:hover {
+    background: none;
+    color: #007f5f;
+    border: 1px solid #007f5f;
+}
+
+.subs-card .col-md-4 .diverted-btn {
+    background: none;
+    color: #007f5f;
+    border: 1px solid #007f5f;
+}
