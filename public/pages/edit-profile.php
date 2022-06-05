@@ -32,15 +32,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     <script src="https://kit.fontawesome.com/01b3ba1a59.js" crossorigin="anonymous"></script>
-    <script src="../admin-js/admin-index.js"></script>
 
-    <style>
-            .b-guide {
-                border: 1px solid green;
-            }
-    </style>
-
-    <title>Pixcover</title>
+    <title>Pixcover | Edit Profile</title>
 </head>
 <body>
     <div class="main-container container-fluid">
@@ -58,7 +51,7 @@
                 <div class="col-2">
                     <div class="row justify-content-center">
                         <div class="col d-flex align-items-center nav-text">
-                            <a class="nav-link" href="#">Join</a>
+                            <a class="nav-link" href="pages/subscribe.php">Join</a>
                         </div>
                         <div class="col d-flex align-items-center nav-text">
                             <a class="nav-link" href="profile.php" id="navProfile">Profile</a>
@@ -81,7 +74,7 @@
                         <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Join</a>
+                            <a class="nav-link" href="pages/subscribe.php">Join</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="profile.php">Profile</a>

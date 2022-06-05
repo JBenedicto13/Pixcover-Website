@@ -17,8 +17,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     <script src="https://kit.fontawesome.com/01b3ba1a59.js" crossorigin="anonymous"></script>
+    <script src="js/nav.js"></script>
 
-    <title>Pixcover | Signup</title>
+    <title>Pixcover | Subscribe</title>
 </head>
 <body>
     <div class="main-container container-fluid">
@@ -36,10 +37,10 @@
                 <div class="col-2">
                     <div class="row justify-content-center">
                         <div class="col d-flex align-items-center nav-text">
-                            <a class="nav-link" href="#">Join</a>
+                            <a class="nav-link" href="subscribe.php">Join</a>
                         </div>
                         <div class="col d-flex align-items-center nav-text">
-                            <a class="nav-link" href="profile.php" id="navProfile">Profile</a>
+                        <a class="nav-link" href="#" id="profStat" onclick="indexCheckStatus()";><?php require('../php/session-changeStatus.php'); ?></a>
                         </div>
                         <div class="col d-flex align-items-center">
                             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -59,7 +60,7 @@
                         <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Join</a>
+                            <a class="nav-link" href="subscribe.php">Join</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="profile.php">Profile</a>

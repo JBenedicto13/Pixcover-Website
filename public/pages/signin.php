@@ -74,7 +74,7 @@
                 <div class="col-2">
                     <div class="row justify-content-center">
                         <div class="col d-flex align-items-center nav-text">
-                            <a class="nav-link" href="#">Join</a>
+                            <a class="nav-link" href="subscribe.php">Join</a>
                         </div>
                         <div class="col d-flex align-items-center nav-text">
                             <a class="nav-link" href="profile.php" id="navProfile">Signin</a>
@@ -97,7 +97,7 @@
                         <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Join</a>
+                            <a class="nav-link" href="subscribe.php">Join</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="profile.php">Profile</a>

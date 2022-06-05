@@ -22,4 +22,9 @@
 		echo '<script> alert("Sucessfully Updated!") </script>';
 		echo '<script> window.location.href = "../../pages/edit-profile.php" </script>';
 	}
+
+	if (isset($_POST['btnCancel'])) {
+		echo '<script> window.location.href = "../../pages/profile.php" </script>';
+	}
+
  ?>
