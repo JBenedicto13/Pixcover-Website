@@ -1,7 +1,7 @@
 <?php
     require ('../php/public-db.php');
     require ('../php/public-session.php');
-
+    
     $txt_Id = $_SESSION['userid'];
     
     $accounts_result = mysqli_query($CON,"SELECT * FROM tblaccounts WHERE idtblaccounts = '$txt_Id'");
@@ -55,7 +55,7 @@
                             <a class="nav-link" href="#">Join</a>
                         </div>
                         <div class="col d-flex align-items-center nav-text">
-                            <a class="nav-link" href="profile.php">Profile</a>
+                            <a class="nav-link" href="profile.php" id="navProfile">Profile</a>
                         </div>
                         <div class="col d-flex align-items-center">
                             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
