@@ -20,7 +20,7 @@
 		WHERE idtblaccounts='$updateId'");
 
 		echo '<script> alert("Sucessfully Updated!") </script>';
-		echo '<script> window.location.href = "../../pages/edit-profile.php" </script>';
+		echo '<script> window.location.href = "../../pages/profile.php" </script>';
 	}
 
 	if (isset($_POST['btnCancel'])) {

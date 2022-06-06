@@ -13,7 +13,7 @@
             mysqli_query($CON, "INSERT INTO tblaccounts(reg_date, fname, lname, username, email, password) VALUES('$txt_date','$txt_fname','$txt_lname','$txt_username','$txt_email','$txt_password');");
 
             echo '<script> alert("Sucessfully Added!") </script>';
-            echo '<script> window.location.href = "../../pages/profile.html" </script>';
+            echo '<script> window.location.href = "../../pages/profile.php" </script>';
         }
         else {
             echo '<script> alert("Password and Confirm Password does not match!") </script>';
