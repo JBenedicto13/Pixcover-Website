@@ -122,7 +122,7 @@
                             border: none;
                             border-radius: 50%;
                         }
-                        #inpChangeDP {
+                        #upload-button {
                             border-color: #007f5f;
                         }
                     </style>
@@ -133,8 +133,8 @@
                             <div class="col-md-3 text-center"><h5>Avatar</h5></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3 avatar_img"><img src="../images/DP.jpg" alt="display photo"></div>
-                            <div class="col-md-9"><input type="file" class="form-control" id="inpChangeDP"></div>
+                            <div class="col-md-3 avatar_img"><img src="" alt="display photo" id="chosen-image"></div>
+                            <div class="col-md-9"><input type="file" class="form-control" id="upload-button" accept="image/*" onclick="change_dp()"></div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -178,5 +178,6 @@
             </div>
         </div>
     </div>
+    <script src="../js/upload.js"></script>
 </body>
 </html>

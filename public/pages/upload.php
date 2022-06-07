@@ -92,10 +92,19 @@
                 </ul>
             </div>
         </div>
+
+        <form action="">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 upload-div">
+                <div class="input-group mb-3 w-50 mx-auto">
+                    <input class="form-control uploadContent" type="file" name="uploadContent" id="uploadContent" onclick="check_file()">
+                </div>
+            </div>
+        </div>
         
         <div class="row justify-content-center" id="contentInfo">
             <div class="col-md-4">
-                <img src="../images/samplebg2.jpg" alt="file selected">
+                <img src="" alt="file selected" id="chosen-image">
             </div>
             <div class="col-md-4">
                 <form action="">
@@ -115,18 +124,9 @@
             </div>
         </div>
 
-        <form action="">
-        <div class="row">
-            <div class="col-md-8 offset-md-2 upload-div">
-                <div class="input-group mb-3 w-50 mx-auto">
-                    <input class="form-control uploadContent" type="file" name="uploadContent" id="uploadContent">
-                </div>
-            </div>
-        </div>
        <div class="row">
             <div class="col-md-8 offset-md-2 upload-div">
                 <input class="btn btn-primary btnUpload" type="submit" value="Upload" id="btnUpload">
-                <button class="btn btn-primary btnUploadCheck" type="button" name="btnUploadCheck" id="btnUploadCheck" onclick="check_file()">Upload</button>
             </div>
        </div>
        </form>

@@ -1,16 +1,33 @@
 function check_file() {
     var checkFile = document.getElementById('uploadContent');
     var contentInfo = document.getElementById('contentInfo');
-    var btnUpload = document.getElementById('btnUpload');
-    var btnUploadCheck = document.getElementById('btnUploadCheck');
+    var chosenImage = document.getElementById('chosen-image');
 
-    if (checkFile.files.length == 0) {
-        contentInfo.style.display = "none";
-        btnUpload.style.display = "none";
-        btnUploadCheck.style.display = "inline-block";
-    } else {
-        contentInfo.style.display = "flex";
-        btnUpload.style.display = "inline-block";
-        btnUploadCheck.style.display = "none";
+    checkFile.onchange = () => {
+        if (checkFile.files.length == 0) {
+            contentInfo.style.display = "none";
+        } else {
+            contentInfo.style.display = "flex";
+        }
+
+        let reader = new FileReader();
+        reader.readAsDataURL(checkFile.files[0]);
+        reader.onload = () => {
+            chosenImage.setAttribute("src",reader.result);
+        }
+    }
+}
+
+function change_dp() {
+    let uploadButton = document.getElementById("upload-button");
+    let chosenImage = document.getElementById("chosen-image");
+    let fileName = document.getElementById("file-name");
+
+    uploadButton.onchange = () => {
+        let reader = new FileReader();
+        reader.readAsDataURL(uploadButton.files[0]);
+        reader.onload = () => {
+            chosenImage.setAttribute("src",reader.result);
+        }
     }
 }

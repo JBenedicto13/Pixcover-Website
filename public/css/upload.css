@@ -16,20 +16,9 @@
     background-color: #007f5f;
     border: none;
     color: #fff9fb;
-    display: none;
 }
 
 .upload-div .btnUpload:hover {
-    background-color: #064b3a;
-}
-
-.upload-div .btnUploadCheck {
-    background-color: #007f5f;
-    border: none;
-    color: #fff9fb;
-}
-
-.upload-div .btnUploadCheck:hover {
     background-color: #064b3a;
 }
 

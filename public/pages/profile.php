@@ -113,7 +113,7 @@
                                 <?php while ($ROW = mysqli_fetch_array($accounts_result)) { ?>
                                 <h5 class="card-title text-uppercase text-center" style="font-size: 24px;"><?php echo $ROW['fname'].' '.$ROW['lname']?></h5>
                                 <a href="edit-profile.php" class="btn btn-success">Edit Profile</a>
-                                <a href="#" class="btn btn-success">Upload</a>
+                                <a href="upload.php" class="btn btn-success">Upload</a>
                                 <?php } ?>
                             </div>
                         </div>
