@@ -22,7 +22,7 @@
 		$updateDisplayPhoto = $newname;
 
 		$filename=$_FILES['dp_image']['tmp_name'];
-		if(move_uploaded_file($filename, 'dp-images/'.$newname)) {
+		if(move_uploaded_file($filename, '../../accounts/avatars/'.$newname)) {
 			echo '<script>alert("Uploaded")</script>';
 		} else {
 			echo '<script>alert("Not Uploaded")</script>';

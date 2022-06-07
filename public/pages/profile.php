@@ -114,7 +114,7 @@
                         <div class="card avatar-card justify-content-center" style="width: 20rem;">
                         <?php while ($ROW = mysqli_fetch_array($accounts_result)) { ?>
                             <div class="avatar-image">
-                                <img src="<?php echo '../php/accounts-php/dp-images/'.$ROW['display_photo']; ?>" class="card-img-top" alt="...">
+                                <img src="<?php echo '../accounts/avatars/'.$ROW['display_photo']; ?>" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body pt-3">
                                 <h5 class="card-title text-uppercase text-center" style="font-size: 24px;"><?php echo $ROW['fname'].' '.$ROW['lname']?></h5>
