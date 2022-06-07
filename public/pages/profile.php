@@ -19,7 +19,13 @@
     
     $txt_Id = $_SESSION['userid'];
     
-    $accounts_result = mysqli_query($CON,"SELECT * FROM tblaccounts WHERE idtblaccounts = '$txt_Id'");
+    $accounts_result = mysqli_query($CON,"
+    SELECT tblaccounts.idtblaccounts, fname, lname, email, gcash_num, short_bio, website, socsci_handles, location, display_photo
+    FROM tblaccounts
+    JOIN tbladdinfo
+    ON tblaccounts.idtblaccounts = tbladdinfo.idtblaccounts
+    WHERE tblaccounts.idtblaccounts = '$txt_Id';
+    ");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,15 +112,15 @@
                 <div class="row justify-content-center h-100">
                     <div class="col">
                         <div class="card avatar-card justify-content-center" style="width: 20rem;">
+                        <?php while ($ROW = mysqli_fetch_array($accounts_result)) { ?>
                             <div class="avatar-image">
-                                <img src="../images/DP.jpg" class="card-img-top" alt="...">
+                                <img src="<?php echo '../php/accounts-php/dp-images/'.$ROW['display_photo']; ?>" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body pt-3">
-                                <?php while ($ROW = mysqli_fetch_array($accounts_result)) { ?>
                                 <h5 class="card-title text-uppercase text-center" style="font-size: 24px;"><?php echo $ROW['fname'].' '.$ROW['lname']?></h5>
                                 <a href="edit-profile.php" class="btn btn-success">Edit Profile</a>
                                 <a href="upload.php" class="btn btn-success">Upload</a>
-                                <?php } ?>
+                        <?php } ?>
                             </div>
                         </div>
                     </div>
