@@ -11,6 +11,7 @@
             $txt_password = $_POST['txtPassword'];
             
             mysqli_query($CON, "INSERT INTO tblaccounts(reg_date, fname, lname, username, email, password) VALUES('$txt_date','$txt_fname','$txt_lname','$txt_username','$txt_email','$txt_password');");
+            mysqli_query($CON, "INSERT INTO tbladdinfo(idtblaccounts) VALUES((SELECT MAX(idtblaccounts) FROM tblaccounts));");
 
             echo '<script> alert("Sucessfully Added!") </script>';
             echo '<script> window.location.href = "../../pages/profile.php" </script>';
