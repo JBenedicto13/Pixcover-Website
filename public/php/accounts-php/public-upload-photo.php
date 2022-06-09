@@ -1,6 +1,26 @@
 <?php 
 	require('../public-db.php');
 
+    function compress_image($source_url, $destination_url, $quality) {
+		$info = getimagesize($source_url);
+		 
+		if ($info['mime'] == 'image/jpeg') $image = imagecreatefromjpeg($source_url);
+		elseif ($info['mime'] == 'image/gif') $image = imagecreatefromgif($source_url);
+		elseif ($info['mime'] == 'image/png') $image = imagecreatefrompng($source_url);
+		elseif ($info['mime'] == 'image/jpg') $image = imagecreatefromjpeg($source_url);
+		 
+		//save it
+		imagejpeg($image, $destination_url, $quality);
+		
+		mysqli_query($CON, "INSERT INTO tblphotouploads(creator_id, photo_name, title, tags, location) VALUES('$txt_creator_id','$photo_name','$txt_title','$txt_tags','$txt_location');");
+
+        echo '<script> alert("Sucessfully Uploaded! Please wait for admin to approve your content.") </script>';
+        echo '<script> window.location.href = "../../pages/profile.php" </script>';
+
+		//return destination file url
+		return $destination_url;
+	}
+
     if (isset($_POST['btnUpload'])) {
         $incremented_id = (int)$_POST['photoupload_id'] + 1;
         $txt_creator_id = $_POST['creator_id'];
@@ -12,20 +32,35 @@
 
         //Image Rename and Upload
 		$uploadContent_name = $_FILES['uploadContent']['name'];
-		$extension = pathinfo($uploadContent_name,PATHINFO_EXTENSION);
+		$allowImageExt = array('jpg','png','jpeg','gif');
+        $extension = pathinfo($uploadContent_name,PATHINFO_EXTENSION);
         $rename='pixcover-'.$txt_creator_fname.'-'.$txt_creator_lname.'-'.$incremented_id;
 		$newname = strtolower($rename.'.'.$extension);
 		$photo_name = $newname;
+        $filename=$_FILES['uploadContent']['tmp_name'];
+        $imageQuality = 60;
+        $dest_photo = '../../accounts/photo_uploads/'.$photo_name;
+		$dest_photo_compress = '../../accounts/photos_preview/'.$photo_name;
 
-		$filename=$_FILES['uploadContent']['tmp_name'];
-        if(move_uploaded_file($filename, '../../accounts/photo_uploads/'.$photo_name)) {
-			mysqli_query($CON, "INSERT INTO tblphotouploads(creator_id, photo_name, title, tags, location) VALUES('$txt_creator_id','$photo_name','$txt_title','$txt_tags','$txt_location');");
-
-            echo '<script> alert("Sucessfully Uploaded! Please wait for admin to approve your content.") </script>';
-            echo '<script> window.location.href = "../../pages/profile.php" </script>';
+        if(empty($uploadContent_name)){ 
+			$error="Please Select files..";
+			return $error;
+		  
 		} else {
-			echo '<script> alert("An error has occured while uploading your content") </script>';
-            echo '<script> window.location.href = "../../pages/upload.php" </script>';
+			if (in_array($extension, $allowImageExt)) {
+				echo '<script>alert("Uploaded")</script>';
+				
+				if( !copy($filename, $dest_photo) ) { 
+					echo '<script>alert("File can.'."'".'t be copied!")</script>';
+				} 
+				else {
+
+					$compressimage = compress_image($filename, $dest_photo_compress, 60);
+					echo '<script>alert("File has been copied!")</script>';
+				}
+			} else {
+				echo '<script>alert("File type not supported please upload .jpg, .png, .jpeg or .gif only.")</script>';
+			}
 		}
     }
     else {
