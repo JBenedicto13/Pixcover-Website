@@ -1,6 +1,17 @@
 <?php
     require ('../php/public-db.php');
-    require ('../php/public-session.php');
+    session_start();
+    
+    $txt_Id = $_SESSION['userid'];
+    
+    $accounts_result = mysqli_query($CON,"
+    SELECT idtblaccounts, fname, lname FROM tblaccounts
+    WHERE idtblaccounts = '$txt_Id';
+    ");
+    $idtblphotouploads_result = mysqli_query($CON,"
+    SELECT idtblphotouploads FROM tblphotouploads
+    ORDER BY idtblphotouploads DESC LIMIT 1;");
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,12 +103,20 @@
                 </ul>
             </div>
         </div>
-
-        <form action="">
+        <?php while ($ROW = mysqli_fetch_array($idtblphotouploads_result)) {
+            $txt_idtblphotoupload = $ROW['idtblphotouploads'];
+        } ?>
+        <?php while ($ROW = mysqli_fetch_array($accounts_result)) { ?>
+        <form action="../php/accounts-php/public-upload-photo.php" method="POST" enctype="multipart/form-data">
+        <!-- photoupload ID -->
+            <input type="hidden" name="photoupload_id" value="<?php echo $txt_idtblphotoupload; ?>">
+            <input type="hidden" name="creator_id" value="<?php echo $ROW['idtblaccounts']; ?>">
+            <input type="hidden" name="creator_fname" value="<?php echo $ROW['fname']; ?>">
+            <input type="hidden" name="creator_lname" value="<?php echo $ROW['lname']; ?>">
         <div class="row">
             <div class="col-md-8 offset-md-2 upload-div">
                 <div class="input-group mb-3 w-50 mx-auto">
-                    <input class="form-control uploadContent" type="file" name="uploadContent" id="uploadContent" onclick="check_file()">
+                    <input class="form-control uploadContent" type="file" name="uploadContent" id="uploadContent" accept="video/*,image/*" onclick="check_file()">
                 </div>
             </div>
         </div>
@@ -107,29 +126,28 @@
                 <img src="" alt="file selected" id="chosen-image">
             </div>
             <div class="col-md-4">
-                <form action="">
-                    <div class="mb-3">
-                        <label for="file_title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="file_title" placeholder="Title">
-                    </div>
-                    <div class="mb-3">
-                        <label for="file_tags" class="form-label">Tags</label>
-                        <input type="text" class="form-control" id="file_tags" placeholder="Tags">
-                    </div>
-                    <div class="mb-3">
-                        <label for="file_location" class="form-label">Location</label>
-                        <input type="text" class="form-control" id="file_location" placeholder="Location">
-                    </div>
-                </form>
+                <div class="mb-3">
+                    <label for="file_title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="file_title" name="file_title" placeholder="Title">
+                </div>
+                <div class="mb-3">
+                    <label for="file_tags" class="form-label">Tags</label>
+                    <input type="text" class="form-control" id="file_tags" name="file_tags" placeholder="Tags">
+                </div>
+                <div class="mb-3">
+                    <label for="file_location" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="file_location" name="file_location" placeholder="Location">
+                </div>
             </div>
         </div>
 
        <div class="row">
             <div class="col-md-8 offset-md-2 upload-div">
-                <input class="btn btn-primary btnUpload" type="submit" value="Upload" id="btnUpload">
+                <input class="btn btn-primary btnUpload" type="submit" value="Upload" id="btnUpload" name="btnUpload">
             </div>
        </div>
        </form>
+       <?php } ?>
        <br><br>
     </div>
 </body>
