@@ -3,7 +3,8 @@
 
     $home_result = mysqli_query($CON,"SELECT pu.idtblphotouploads, pu.photo_name, pu.creator_id, display_photo, ac.fname, ac.lname, pu.title, pu.tags, pu.location
     FROM tblphotouploads pu,tblaccounts ac,tbladdinfo ai
-    WHERE ac.idtblaccounts = pu.creator_id AND pu.creator_id = ai.idtblaccounts");
+    WHERE ac.idtblaccounts = pu.creator_id AND pu.creator_id = ai.idtblaccounts
+    ORDER BY RAND()");
 ?>
 
 <!DOCTYPE html>
@@ -116,7 +117,7 @@
         <?php while ($ROW = mysqli_fetch_array($home_result)) { ?>
             <div class="col-lg-4 col-md-6 col-6">
                 <div class="card image">
-                    <img src="<?php echo 'accounts/photo_uploads/'.$ROW['photo_name']; ?>" alt="<?php echo $ROW['title'].' by '.$ROW['lname']; ?>" class="card-img-top card-v">
+                    <img src="<?php echo 'accounts/photos_preview/'.$ROW['photo_name']; ?>" alt="<?php echo $ROW['title'].' by '.$ROW['lname']; ?>" class="card-img-top card-v">
                     <div class="more">
                         <div class="photographer-info">
                             <a href="#"><img src="<?php echo 'accounts/avatars/'.$ROW['display_photo']; ?>" alt="display-photo"></a>
@@ -130,23 +131,6 @@
                 </div>
             </div>
         <?php } ?>
-
-            <!-- <div class="col-lg-4 col-md-6 col-6">
-                <div class="card image">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="" class="card-img-top card-v">
-                    <div class="more">
-                        <div class="photographer-info">
-                            <a href="#"><img src="images/samplebg.jpg" alt=""></a>
-                            <a href="#"><span>Photographer's Name</span></a>
-                        </div>
-                        <div class="icon-links">
-                            <a href="#"><i class="fa-solid fa-heart"></i></a>
-                            <a href="#"><i class="fa-solid fa-arrow-down"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            -->
         </div>
     </div>
 </body>

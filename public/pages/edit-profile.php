@@ -133,7 +133,7 @@
                             <div class="col-md-3 text-center"><h5>Avatar</h5></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3 avatar_img"><img src="<?php echo '../accounts/avatars/'.$ROW['display_photo']; ?>" alt="display photo" id="chosen-image"></div>
+                            <div class="col-md-3 avatar_img"><img src="<?php echo '../accounts/avatars_preview/'.$ROW['display_photo']; ?>" alt="display photo" id="chosen-image"></div>
                             <div class="col-md-9"><input type="file" class="form-control" id="upload-button" name="dp_image" accept="image/*" onclick="change_dp()"></div>
                         </div>
                     </div>

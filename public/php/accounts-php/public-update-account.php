@@ -43,12 +43,17 @@
 		$imageQuality = 60;
 		$filename=$_FILES['dp_image']['tmp_name'];
 		$dest_photo = '../../accounts/avatars/'.$newname;
-		$dest_photo_compress = '../../accounts/photos_preview/'.$newname;
+		$dest_photo_compress = '../../accounts/avatars_preview/'.$newname;
 
 		if(empty($update_displayPhoto)){ 
-			$error="Please Select files..";
-			return $error;
-		  
+			mysqli_query($CON, "UPDATE tblaccounts SET fname='$update_txtFname', lname='$update_txtLname', email='$update_txtEmail' 
+			WHERE idtblaccounts='$updateId'");
+
+			mysqli_query($CON, "UPDATE tbladdinfo SET gcash_num='$update_txtGcashNum', short_bio='$update_txtShortBio', website='$update_txtWebsite', socsci_handles='$update_txtSocialMedia', location='$update_txtLocation'
+			WHERE idtblaccounts='$updateId'");
+
+			echo '<script> alert("Sucessfully Updated!") </script>';
+			echo '<script> window.location.href = "../../pages/profile.php" </script>';
 		} else {
 			if (in_array($extension, $allowImageExt)) {
 				echo '<script>alert("Uploaded")</script>';
