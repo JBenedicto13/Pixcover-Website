@@ -162,8 +162,8 @@
                     <img src="<?php echo '../accounts/photos_preview/'.$ROW['photo_name']; ?>" alt="<?php echo $ROW['title'].' by '.$ROW['lname']; ?>" id="<?php echo $ROW['idtblphotouploads']; ?>" class="card-img-top card-v photo_trigger" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_photo">
                     <div class="more">
                         <div class="photographer-info">
-                            <a href="#"><img id="img_avatar" src="<?php echo '../accounts/avatars/'.$ROW['display_photo']; ?>" alt="display-photo"></a>
-                            <a href="#"><span id="fullname"><?php echo $ROW['fname'].' '.$ROW['lname']?></span></a>
+                            <a href="<?php echo 'profile-visit.php?uid='.$ROW['creator_id']?>"><img id="img_avatar" src="<?php echo '../accounts/avatars/'.$ROW['display_photo']; ?>" alt="display-photo"></a>
+                            <a href="<?php echo 'profile-visit.php?uid='.$ROW['creator_id']?>"><span id="fullname"><?php echo $ROW['fname'].' '.$ROW['lname']?></span></a>
                         </div>
                         <div class="icon-links">
                             <a href="#"><i class="fa-solid fa-heart"></i></a>
