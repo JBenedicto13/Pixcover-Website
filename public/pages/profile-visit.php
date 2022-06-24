@@ -16,16 +16,27 @@
             }
         </script>";
     }
+    $getuserId = $_SESSION['userid'];
+    $getfollowId = $_GET['uid'];
     
-    $txt_Id = $_GET['uid'];
-    
-    $accounts_result = mysqli_query($CON,"
-    SELECT tblaccounts.idtblaccounts, fname, lname, email, gcash_num, short_bio, website, socsci_handles, location, display_photo
-    FROM tblaccounts
-    JOIN tbladdinfo
-    ON tblaccounts.idtblaccounts = tbladdinfo.idtblaccounts
-    WHERE tblaccounts.idtblaccounts = '$txt_Id';
+    $accounts_result = mysqli_query($CON,"SELECT * FROM tblaccounts a
+    JOIN tbladdinfo ai ON a.idtblaccounts = ai.idtblaccounts
+    JOIN tblfollow f ON a.idtblaccounts = f.user_id
+    WHERE a.idtblaccounts = '".$getfollowId."';
     ");
+
+    $userid_result = mysqli_query($CON,"SELECT follower_id FROM tblfollow WHERE user_id = ".$getuserId.";");
+    $followid_result = mysqli_query($CON,"SELECT * FROM tblfollow WHERE user_id = ".$getfollowId.";");
+
+    $ROWuser = mysqli_fetch_array($userid_result);
+    $ROWfollow = mysqli_fetch_array($followid_result);
+
+    $userId = $ROWuser['follower_id'];
+    $followId = $ROWfollow['follower_id'];
+
+    $followingNum = $ROWfollow['followingNum'];
+    $followersNum = $ROWfollow['followersNum'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,13 +51,6 @@
     <link rel="stylesheet" type="text/css" href="../css/nav.css">
     <link rel="stylesheet" type="text/css" href="../css/card-group.css">
     <link rel="stylesheet" type="text/css" href="../css/profile-style.css">
-
-    <!-- JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
-    <script src="https://kit.fontawesome.com/01b3ba1a59.js" crossorigin="anonymous"></script>
 
     <title>Pixcover | Profile</title>
 </head>
@@ -86,7 +90,7 @@
                     <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
+                            <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="subscribe.php">Join</a>
@@ -121,7 +125,7 @@
                                 <p id="bio-content">
                                     <?php echo $ROW['short_bio']?>
                                 </p>
-                                <a href="#" class="btn btn-success">Follow</a>
+                                <a class="btn btn-success" id="btnFollow">Follow</a>
                                 <a href="#" class="btn btn-success">Donate</a>
                         <?php } ?>
                             </div>
@@ -134,13 +138,13 @@
             <div class="col">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Download</a>
+                      <a class="nav-link active" aria-current="page" href="#">Download <span class="badge text-bg-light rounded-pill">0</span></a></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Followers</a>
+                      <a class="nav-link" href="#">Followers <span id="followersbadge" class="badge text-bg-dark rounded-pill"><?php echo $followersNum ?></span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Following</a>
+                      <a class="nav-link" href="#">Following <span class="badge text-bg-dark rounded-pill"><?php echo $followingNum ?></span></a>
                     </li>
                 </ul>
             </div>
@@ -149,4 +153,50 @@
         </div>
     </div>
 </body>
+
+<!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+    <script src="https://kit.fontawesome.com/01b3ba1a59.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+            $(document).ready(function(){
+                // $('.nav-pills > li > .active').removeClass('active');
+                $('#btnFollow').on('click', function(){
+                    var btnFollow = $(this);
+                    if (btnFollow.html() === "Follow"){
+                        var btnState = "Follow";
+                        var othersFollowId = "<?php echo $followId ?>";
+                        var myFollowId = "<?php echo $userId ?>"
+                        $.ajax({
+                            method: "POST",
+                            url: "../php/accounts-php/public-follow.php",
+                            data: {myFollowId:myFollowId, othersFollowId:othersFollowId, state:btnState},
+                            success: function(response){
+                                var data = JSON.parse(response);
+                                $('#btnFollow').text('Following');
+                                $('#followersbadge').html(<?php echo $followersNum+1 ?>);
+                            }
+                        })
+                    }
+                    else {
+                        var btnState = "Following";
+                        var othersFollowId = "<?php echo $followId ?>";
+                        var myFollowId = "<?php echo $userId ?>"
+                        $.ajax({
+                            method: "POST",
+                            url: "../php/accounts-php/public-follow.php",
+                            data: {myFollowId:myFollowId, othersFollowId:othersFollowId, state:btnState},
+                            success: function(response){
+                                var data = JSON.parse(response);
+                                $('#btnFollow').text('Follow');
+                                $('#followersbadge').html(<?php echo $followersNum-1 ?>);
+                            }
+                        })
+                    }
+                });
+            });
+    </script>
 </html>

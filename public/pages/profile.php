@@ -19,13 +19,16 @@
     
     $txt_Id = $_SESSION['userid'];
     
-    $accounts_result = mysqli_query($CON,"
-    SELECT tblaccounts.idtblaccounts, fname, lname, email, gcash_num, short_bio, website, socsci_handles, location, display_photo
-    FROM tblaccounts
-    JOIN tbladdinfo
-    ON tblaccounts.idtblaccounts = tbladdinfo.idtblaccounts
-    WHERE tblaccounts.idtblaccounts = '$txt_Id';
+    $accounts_result = mysqli_query($CON,"SELECT * FROM tblaccounts a
+    JOIN tbladdinfo ai ON a.idtblaccounts = ai.idtblaccounts
+    JOIN tblfollow f ON a.idtblaccounts = f.user_id
+    WHERE a.idtblaccounts = '".$txt_Id."';
     ");
+
+    $userid_result = mysqli_query($CON,"SELECT * FROM tblfollow WHERE user_id = ".$txt_Id.";");
+    $ROWuser = mysqli_fetch_array($userid_result);
+    $followingNum = $ROWuser['followingNum'];
+    $followersNum = $ROWuser['followersNum']
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -134,13 +137,13 @@
             <div class="col">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Download</a>
+                      <a class="nav-link active" aria-current="page" href="#">Download <span class="badge text-bg-light rounded-pill">0</span></a></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Followers</a>
+                      <a class="nav-link" href="#">Followers <span class="badge text-bg-dark rounded-pill"><?php echo $followersNum ?></span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Following</a>
+                      <a class="nav-link" href="#">Following <span class="badge text-bg-dark rounded-pill"><?php echo $followingNum ?></span></a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="../php/public-signout.php">Signout</a>
