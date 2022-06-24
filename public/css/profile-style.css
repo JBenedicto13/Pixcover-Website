@@ -10,6 +10,7 @@
     top: 25%;
     background: none;
     border: none;
+    width: 30em;
 }
 
 .avatar-card .card-body{
@@ -17,8 +18,8 @@
     margin-top: 5%;
 }
 
-.avatar-card .card-body a{
-    margin-top: 10%;
+.avatar-card .card-body a {
+    margin-top: 5%;
     background-color: #007f5f;
 }
 
@@ -36,11 +37,16 @@
     font-size: 24px;
 }
 
+.avatar-card .card-body p {
+    font-style: italic;
+    margin-bottom: 0;
+}
+
 .nav-pills .nav-item {
     padding: 14px 16px;
 }
 
-.nav-pills .nav-item a{
+.nav-pills .nav-item a {
     /* color: #fff9fb; */
     color: #252627;
     font-size: 18px;

@@ -49,8 +49,7 @@
 			mysqli_query($CON, "UPDATE tblaccounts SET fname='$update_txtFname', lname='$update_txtLname', email='$update_txtEmail' 
 			WHERE idtblaccounts='$updateId'");
 
-			mysqli_query($CON, "UPDATE tbladdinfo SET gcash_num='$update_txtGcashNum', short_bio='$update_txtShortBio', website='$update_txtWebsite', socsci_handles='$update_txtSocialMedia', location='$update_txtLocation'
-			WHERE idtblaccounts='$updateId'");
+			mysqli_query($CON, "UPDATE tbladdinfo SET gcash_num='$update_txtGcashNum', short_bio='$update_txtShortBio', website='$update_txtWebsite', socsci_handles='$update_txtSocialMedia', location='$update_txtLocation' WHERE idtblaccounts='$updateId'");
 
 			echo '<script> alert("Sucessfully Updated!") </script>';
 			echo '<script> window.location.href = "../../pages/profile.php" </script>';
