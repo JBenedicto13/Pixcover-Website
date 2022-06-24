@@ -46,10 +46,10 @@
         <div class="row">
         <div class="d-flex mb-3">
             <div class="p-2">
-                <a class="nav-link"><img id="avatar_pic" src="<?php echo 'accounts/avatars/'.$ROW['display_photo']; ?>" alt=""></a>
+                <a href="<?php echo 'pages/profile-visit.php?uid='.$ROW['creator_id']?>" class="nav-link"><img id="avatar_pic" src="<?php echo 'accounts/avatars/'.$ROW['display_photo']; ?>" alt=""></a>
             </div>
             <div class="p-2">
-                <div class="row"><h5><a class="nav-link" href="#"><?php echo $ROW['fname']." ".$ROW['lname']; ?></a></h5></div>
+                <div class="row"><h5><a class="nav-link" href="<?php echo 'pages/profile-visit.php?uid='.$ROW['creator_id']?>"><?php echo $ROW['fname']." ".$ROW['lname']; ?></a></h5></div>
                 <div class="row"><h5><a class="nav-link" href="#">Follow</a></h5></div>
             </div>
             <div class="ms-auto p-2"><button class="btn btn-success">Like</button></div>
