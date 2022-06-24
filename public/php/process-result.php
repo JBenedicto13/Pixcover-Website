@@ -46,7 +46,7 @@
         <div class="row">
         <div class="d-flex mb-3">
             <div class="p-2">
-                <a class="nav-link"><img id="avatar_pic" src="<?php echo 'accounts/avatars/'.$ROW['display_photo']; ?>" alt=""></a>
+                <a class="nav-link"><img id="avatar_pic" src="<?php echo '../accounts/avatars/'.$ROW['display_photo']; ?>" alt=""></a>
             </div>
             <div class="p-2">
                 <div class="row"><h5><a class="nav-link" href="#"><?php echo $ROW['fname']." ".$ROW['lname']; ?></a></h5></div>
@@ -69,7 +69,7 @@
         </div>
         </div>
         <div class="row">
-            <img id="main_photo" src="<?php echo 'accounts/photo_uploads/'.$ROW['photo_name']; ?>" alt="">
+            <img id="main_photo" src="<?php echo '../accounts/photo_uploads/'.$ROW['photo_name']; ?>" alt="">
         </div>
         <div class="row">
             
