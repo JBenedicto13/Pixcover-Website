@@ -28,7 +28,7 @@
     $userid_result = mysqli_query($CON,"SELECT * FROM tblfollow WHERE user_id = ".$txt_Id.";");
     $ROWuser = mysqli_fetch_array($userid_result);
     $followingNum = $ROWuser['followingNum'];
-    $followersNum = $ROWuser['followersNum']
+    $followersNum = $ROWuser['followersNum'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

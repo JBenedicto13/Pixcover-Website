@@ -36,6 +36,7 @@
 
     $followingNum = $ROWfollow['followingNum'];
     $followersNum = $ROWfollow['followersNum'];
+    $following = $ROWfollow['following'];
 
 ?>
 <!DOCTYPE html>
@@ -164,6 +165,18 @@
 
             $(document).ready(function(){
                 // $('.nav-pills > li > .active').removeClass('active');
+                var searchfollowing = "<?php echo $followId ?>";
+                console.log(searchfollowing);
+                var followinglist = "<?php echo $following ?>";
+                console.log(followinglist);
+                var found = followinglist.indexOf(searchfollowing);
+                console.log(found);
+                if (found == -1) {
+                    $('#btnFollow').html('Follow');
+                } else {
+                    $('#btnFollow').html('Following');
+                }
+
                 $('#btnFollow').on('click', function(){
                     var btnFollow = $(this);
                     if (btnFollow.html() === "Follow"){
