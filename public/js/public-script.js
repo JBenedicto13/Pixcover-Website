@@ -1,7 +1,10 @@
-function clear_form() {
-    var usernameemail = document.getElementById('txtUsernameEmail');
-    var password = document.getElementById('txtPassword');
+$(document).ready(function(){
 
-    usernameemail.value = "";
-    password.value = "";
-}
+    function clear_form() {
+        var usernameemail = document.getElementById('txtUsernameEmail');
+        var password = document.getElementById('txtPassword');
+
+        usernameemail.value = "";
+        password.value = "";
+    }
+});

@@ -5,7 +5,7 @@
     $txt_Id = $_SESSION['userid'];
     
     $accounts_result = mysqli_query($CON,"
-    SELECT tblaccounts.idtblaccounts, fname, lname, email, gcash_num, short_bio, website, socsci_handles, location
+    SELECT tblaccounts.idtblaccounts, fname, lname, email, gcash_num, short_bio, website, socsci_handles, location, display_photo
     FROM tblaccounts
     JOIN tbladdinfo
     ON tblaccounts.idtblaccounts = tbladdinfo.idtblaccounts
@@ -122,19 +122,19 @@
                             border: none;
                             border-radius: 50%;
                         }
-                        #inpChangeDP {
+                        #upload-button {
                             border-color: #007f5f;
                         }
                     </style>
-                <form action="../php/accounts-php/public-update-account.php" method="POST" class="row g-3">
+                <form action="../php/accounts-php/public-update-account.php" method="POST" class="row g-3" enctype="multipart/form-data">
                     <input type="hidden" id="updateId" name="updateId" value="<?php echo $ROW['idtblaccounts']; ?>">
                     <div class="col-12">
                         <div class="row">
                             <div class="col-md-3 text-center"><h5>Avatar</h5></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3 avatar_img"><img src="../images/DP.jpg" alt="display photo"></div>
-                            <div class="col-md-9"><input type="file" class="form-control" id="inpChangeDP"></div>
+                            <div class="col-md-3 avatar_img"><img src="<?php echo '../accounts/avatars_preview/'.$ROW['display_photo']; ?>" alt="display photo" id="chosen-image"></div>
+                            <div class="col-md-9"><input type="file" class="form-control" id="upload-button" name="dp_image" accept="image/*" onclick="change_dp()"></div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -178,5 +178,6 @@
             </div>
         </div>
     </div>
+    <script src="../js/upload.js"></script>
 </body>
 </html>

@@ -8,9 +8,9 @@
         echo "<script>window.location.href = '../pages/signin.php'</script>";
     } else {
         echo "<script>
-            var status = ".$_SESSION['status'].";
+            var status = '".$_SESSION['status']."';
             if (status === 'valid') {
-                alert(status);
+                
             } else {
                 document.getElementById('navProfile').innerHTML = 'Signin/Signup';
             }
@@ -19,7 +19,16 @@
     
     $txt_Id = $_SESSION['userid'];
     
-    $accounts_result = mysqli_query($CON,"SELECT * FROM tblaccounts WHERE idtblaccounts = '$txt_Id'");
+    $accounts_result = mysqli_query($CON,"SELECT * FROM tblaccounts a
+    JOIN tbladdinfo ai ON a.idtblaccounts = ai.idtblaccounts
+    JOIN tblfollow f ON a.idtblaccounts = f.user_id
+    WHERE a.idtblaccounts = '".$txt_Id."';
+    ");
+
+    $userid_result = mysqli_query($CON,"SELECT * FROM tblfollow WHERE user_id = ".$txt_Id.";");
+    $ROWuser = mysqli_fetch_array($userid_result);
+    $followingNum = $ROWuser['followingNum'];
+    $followersNum = $ROWuser['followersNum'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,10 +39,10 @@
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/nav.css">
-    <link rel="stylesheet" href="../css/card-group.css">
-    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/nav.css">
+    <link rel="stylesheet" type="text/css" href="../css/card-group.css">
+    <link rel="stylesheet" type="text/css" href="../css/profile-style.css">
 
     <!-- JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -103,17 +112,21 @@
         
         <div class="row">
             <div class="header col">
-                <div class="row justify-content-center h-100">
+                <div class="row justify-content-center">
                     <div class="col">
-                        <div class="card avatar-card justify-content-center" style="width: 20rem;">
+                        <div class="card avatar-card justify-content-center">
+                        <?php while ($ROW = mysqli_fetch_array($accounts_result)) { ?>
                             <div class="avatar-image">
-                                <img src="../images/DP.jpg" class="card-img-top" alt="...">
+                                <img src="<?php echo '../accounts/avatars_preview/'.$ROW['display_photo']; ?>" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body pt-3">
-                                <?php while ($ROW = mysqli_fetch_array($accounts_result)) { ?>
-                                <h5 class="card-title text-uppercase text-center" style="font-size: 24px;"><?php echo $ROW['fname'].' '.$ROW['lname']?></h5>
+                                <h5 class="card-title text-uppercase text-center"><?php echo $ROW['fname'].' '.$ROW['lname']?></h5>
+                                <p id="bio-content">
+                                    <?php echo $ROW['short_bio']?>
+                                </p>
                                 <a href="edit-profile.php" class="btn btn-success">Edit Profile</a>
-                                <?php } ?>
+                                <a href="upload.php" class="btn btn-success">Upload</a>
+                        <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -124,13 +137,13 @@
             <div class="col">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Download</a>
+                      <a class="nav-link active" aria-current="page" href="#">Download <span class="badge text-bg-light rounded-pill">0</span></a></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Followers</a>
+                      <a class="nav-link" href="#">Followers <span class="badge text-bg-dark rounded-pill"><?php echo $followersNum ?></span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Following</a>
+                      <a class="nav-link" href="#">Following <span class="badge text-bg-dark rounded-pill"><?php echo $followingNum ?></span></a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="../php/public-signout.php">Signout</a>

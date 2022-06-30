@@ -1,0 +1,32 @@
+@charset "utf-8";
+.conditions-div ul .title {
+    list-style: none;
+    padding-bottom: 10px;
+}
+.conditions-div h3 {
+    text-align: center;
+}
+
+.upload-div {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.upload-div .btnUpload {
+    background-color: #007f5f;
+    border: none;
+    color: #fff9fb;
+}
+
+.upload-div .btnUpload:hover {
+    background-color: #064b3a;
+}
+
+img {
+    max-height: 768px;
+    max-width: 360px;
+}
+
+#contentInfo {
+    display: none;
+}
