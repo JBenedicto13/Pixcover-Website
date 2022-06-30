@@ -5,7 +5,6 @@
     FROM tblphotouploads pu,tblaccounts ac,tbladdinfo ai
     WHERE ac.idtblaccounts = pu.creator_id AND pu.creator_id = ai.idtblaccounts
     ORDER BY RAND()");
-
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +34,7 @@
         <nav class="navbar fixed-top bg-white">
             <div class="container-fluid ms-5 me-5">
                 <div class="col-2">
-                    <a class="navbar-brand" href="index.php"><img src="images/Pixcover Geen Symol.png" alt="Pixcover-Logo" width="50" height="50" class="d-inline-block align-text-center"> Pixcover</a>
+                    <a class="navbar-brand" href="index.php"><img src="images/Pixcover Geen Symol.png" alt="Pixcover-Logo" width="50" height="50" class="d-inline-block align-text-center">Pixcover</a>
                 </div>
                 <div class="col-6">
                     <form class="d-flex" role="search">
@@ -131,7 +130,7 @@
                         </div>
                         <div class="icon-links">
                             <a href="#"><i class="fa-solid fa-heart"></i></a>
-                            <a href="#"><i class="fa-solid fa-arrow-down"></i></a>
+                            <a href="#" id="dl-icon" data-bs-toggle="modal" data-bs-target="#dl-modal"><i class="fa-solid fa-arrow-down"></i></a>
                         </div>
                     </div>
                 </div>
@@ -149,6 +148,22 @@
                 
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="dl-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Thank the creator!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body row dlmodal-body">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 <!-- JavaScript -->
@@ -194,6 +209,20 @@
                     $('#search_bar').val($(this).text());
                     $('#search_result').html('');
                 });
+            });
+
+            $('.icon-links > #dl-icon').on('click', function(){
+                var photo_id = $('.photo_trigger').attr('id');
+                console.log("Checkpoint1");
+                $.ajax({
+                    method: "POST",
+                    url: "php/download-img.php",
+                    data: {photo_id : photo_id},
+                    success: function(data){
+                        $('.dlmodal-body').html(data);
+                        console.log("Checkpoint1.1");
+                    }
+                })
             });
         });
     </script>
